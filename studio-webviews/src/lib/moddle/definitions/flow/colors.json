@@ -1,0 +1,45 @@
+{
+  "name": "Colors for Flow",
+  "uri": "http://www.omg.org/flowc",
+  "prefix": "c",
+  "types": [
+    {
+      "name": "ColoredShape",
+      "extends": [
+        "flowdi:FLOWShape"
+      ],
+      "properties": [
+        {
+          "name": "stroke",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "fill",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "ColoredEdge",
+      "extends": [
+        "flowdi:FLOWEdge"
+      ],
+      "properties": [
+        {
+          "name": "stroke",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "fill",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    }
+  ],
+  "enumerations": [],
+  "associations": []
+}

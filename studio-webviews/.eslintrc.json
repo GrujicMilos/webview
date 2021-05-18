@@ -1,0 +1,234 @@
+{
+    "extends": [
+        "../../.tslintrc.json"
+    ],
+    "env": {
+        "browser": true,
+        "node": false
+    },
+    "rules": {
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+                "args": "none"
+            }
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": [
+            "off"
+        ],
+        "@typescript-eslint/no-explicit-any": [
+            "off"
+        ],
+        "accessor-pairs": [
+            "off"
+        ],
+        "promise/always-return": [
+            "off"
+        ],
+        "promise/catch-or-return": [
+            "off"
+        ],
+        "@typescript-eslint/no-empty-function": [
+            "warn"
+        ],
+        "@typescript-eslint/no-var-requires": [
+            "warn"
+        ],
+        "@typescript-eslint/ban-types": [
+            "warn"
+        ],
+        "@typescript-eslint/adjacent-overload-signatures": [
+            "warn"
+        ],
+        "sonarjs/cognitive-complexity": [
+            "warn"
+        ],
+        "sonarjs/no-identical-functions": [
+            "warn"
+        ],
+        "sonarjs/no-duplicate-string": [
+            "warn"
+        ],
+        "sonarjs/no-duplicated-branches": [
+            "warn"
+        ],
+        "sonarjs/no-redundant-jump": [
+            "warn"
+        ],
+        "sonarjs/no-collapsible-if": [
+            "warn"
+        ],
+        "sonarjs/no-small-switch": [
+            "warn"
+        ],
+        "no-empty": [
+            "warn"
+        ],
+        "no-case-declarations": [
+            "warn"
+        ],
+        "no-fallthrough": [
+            "warn"
+        ],
+        "no-duplicate-imports": [
+            "warn"
+        ],
+        "no-prototype-builtins": [
+            "warn"
+        ],
+        "no-duplicate-case": [
+            "warn"
+        ],
+        "no-useless-escape": [
+            "warn"
+        ],
+        "prefer-promise-reject-errors": [
+            "warn"
+        ],
+        "@typescript-eslint/member-ordering": [
+            "warn",
+            {
+                "default": [
+                    // Index signature
+                    "signature",
+                    // Fields
+                    "public-static-field",
+                    "protected-static-field",
+                    "private-static-field",
+                    "public-decorated-field",
+                    "protected-decorated-field",
+                    "private-decorated-field",
+                    "public-instance-field",
+                    "protected-instance-field",
+                    "private-instance-field",
+                    "public-abstract-field",
+                    "protected-abstract-field",
+                    "private-abstract-field",
+                    "public-field",
+                    "protected-field",
+                    "private-field",
+                    "static-field",
+                    "instance-field",
+                    "abstract-field",
+                    "decorated-field",
+                    "field",
+                    // Constructors
+                    "public-constructor",
+                    "protected-constructor",
+                    "private-constructor",
+                    "constructor",
+                    // Methods
+                    "public-static-method",
+                    "protected-static-method",
+                    "private-static-method",
+                    "public-decorated-method",
+                    "protected-decorated-method",
+                    "private-decorated-method",
+                    "public-instance-method",
+                    "protected-instance-method",
+                    "private-instance-method",
+                    "public-abstract-method",
+                    "protected-abstract-method",
+                    "private-abstract-method",
+                    "public-method",
+                    "protected-method",
+                    "private-method",
+                    "static-method",
+                    "instance-method",
+                    "abstract-method",
+                    "decorated-method",
+                    "method"
+                ]
+            }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+            "warn",
+            {
+                "accessibility": "explicit",
+                "overrides": {
+                    "constructors": "no-public"
+                }
+            }
+        ],
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": [
+            "error"
+        ],
+        "no-unused-expressions": "off",
+        "@typescript-eslint/no-unused-expressions": [
+            "error"
+        ],
+        "@typescript-eslint/explicit-function-return-type": [
+            "warn"
+        ],
+        "require-jsdoc": [
+            "warn",
+            {
+                "require": {
+                    "FunctionDeclaration": true,
+                    "MethodDefinition": true,
+                    "ClassDeclaration": true,
+                    "ArrowFunctionExpression": true,
+                    "FunctionExpression": true
+                }
+            }
+        ],
+        "camelcase": "off",
+        "@typescript-eslint/naming-convention": [
+            "warn",
+            {
+                "selector": "default",
+                "format": [
+                    "camelCase"
+                ]
+            },
+            {
+                "selector": "variable",
+                "format": [
+                    "camelCase",
+                    "UPPER_CASE"
+                ]
+            },
+            {
+                "selector": "parameter",
+                "format": [
+                    "camelCase"
+                ],
+                "leadingUnderscore": "allow"
+            },
+            {
+                "selector": "parameterProperty",
+                "modifiers": [
+                    "private"
+                ],
+                "format": [
+                    "camelCase"
+                ],
+                "leadingUnderscore": "require"
+            },
+            {
+                "selector": "property",
+                "modifiers": [
+                    "private"
+                ],
+                "format": [
+                    "camelCase"
+                ],
+                "leadingUnderscore": "require"
+            },
+            {
+                "selector": "typeLike",
+                "format": [
+                    "PascalCase"
+                ]
+            },
+            {
+                "selector": "enumMember",
+                "format": [
+                    "PascalCase"
+                ]
+            }
+        ]
+    }
+}

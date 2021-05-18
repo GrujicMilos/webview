@@ -1,0 +1,154 @@
+{
+    "$schema": "../node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "studio-webviews": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "styleext": "scss"
+                }
+            },
+            "root": "",
+            "sourceRoot": "src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "allowedCommonJsDependencies": [
+                            "uuid",
+                            "jsoneditor",
+                            "ids",
+                            "object-refs",
+                            "hammerjs",
+                            "ajv",
+                            "lodash",
+                            "xml-formatter"
+                        ],
+                        "outputPath": "dist/studio-webviews",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.app.json",
+                        "aot": false,
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets",
+                            {
+                                "glob": "**/*",
+                                "input": "../../node_modules/tinymce",
+                                "output": "/node_modules/tinymce/"
+                            }
+                        ],
+                        "styles": [
+                            "src/styles.scss",
+                            "./node_modules/@fortawesome/fontawesome-free/css/all.css"
+                        ],
+                        "scripts": [
+                            "./node_modules/@fortawesome/fontawesome-free/js/all.js",
+                            "./node_modules/json-schema-ref-parser/dist/ref-parser.min.js",
+                            "./node_modules/@webcomponents/custom-elements/src/native-shim.js",
+                            "./node_modules/pubsub-js/src/pubsub.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "10mb",
+                                    "maximumError": "10mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "300kb",
+                                    "maximumError": "500kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "studio-webviews:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "studio-webviews:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "studio-webviews:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.spec.json",
+                        "karmaConfig": "karma.conf.js",
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets",
+                            {
+                                "glob": "**/*",
+                                "input": "../../node_modules/tinymce",
+                                "output": "/node_modules/tinymce/"
+                            }
+                        ],
+                        "styles": [
+                            "src/styles.scss"
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "tsconfig.app.json",
+                            "tsconfig.spec.json",
+                            "e2e/tsconfig.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "e2e/protractor.conf.js",
+                        "devServerTarget": "studio-webviews:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "studio-webviews:serve:production"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "studio-webviews"
+}

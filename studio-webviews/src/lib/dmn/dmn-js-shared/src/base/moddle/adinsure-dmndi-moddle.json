@@ -1,0 +1,56 @@
+{
+  "name": "AdInsureDMNDI",
+  "uri": "http://adacta-fintech.com/schema/1.0/dmndi",
+  "prefix": "adiDMNDI",
+  "associations": [],
+  "types": [
+    {
+      "name": "ElementWidth",
+      "isAttr": false,
+      "properties": [
+        {
+          "name": "dmnElementRef",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "value",
+          "type": "Integer",
+          "isAttr": true
+        }
+      ]
+    },
+    {
+      "name": "ElementWidths",
+      "isAttr": false,
+      "properties": [
+        {
+          "name": "dmnElementRef",
+          "type": "DMN:DMNElement",
+          "isAttr": true,
+          "isReference": true
+        },
+        {
+          "name": "widths",
+          "type": "ElementWidth",
+          "isMany": true
+        }
+      ]
+    },
+    {
+      "name": "ElementsWidthsExtension",
+      "superClass": [
+        "di:DiagramElementExtension"
+      ],
+      "isAttr": false,
+      "properties": [
+        {
+          "name": "elementWidths",
+          "type": "ElementWidths",
+          "isMany": true
+        }
+      ]
+    }
+  ],
+  "emumerations": []
+}

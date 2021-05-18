@@ -1,0 +1,94 @@
+:root {
+  --dialog-body-model-height: calc(100vh - 300px);
+  --dialog-body-model-overflow: auto;
+  --dialog-popup-save-button-disabled-opacity: 0.5;
+  --dialog-popup-save-button-cancel-opacity: 0.6;
+  --dialog-modal-footer-padding: 5px;
+  --dialog-dialog-footer-button-width: 90px;
+  --dialog-footer-button-height: 36px;
+  --dialog-footer-button-border-radius: 3px;
+  --dialog-footer-button-font-size: 14px;
+  --dialog-footer-button-font-weight: 700;
+  --dialog-footer-button-box-shadow-on-focus: none;
+  --dialog-max-width: 800px;
+  --dialog-min-height: 300px;
+  --dialog-width: 800px;
+  --dialog-header-border-radius: 0px;
+  --dilaog-content-border: none;
+}
+
+.modal-header {
+  background-color: var(--color-background);
+  color: var(--editor-vscode-dark-color);
+  border-radius: var(--dialog-header-border-radius);
+
+  .vscode-light & {
+    color: var(--editor-vscode-light-color) !important;
+  }
+
+  .vscode-dark & {
+    color: var(--editor-vscode-dark-color) !important;
+  }
+
+  .fa-times {
+    opacity: var(--dialog-popup-save-button-cancel-opacity);
+    .vscode-light & {
+      color: var(--editor-vscode-light-color);
+    }
+    .vscode-dark & {
+      color: var(--editor-vscode-dark-color);
+    }
+  }
+}
+
+.modal-footer {
+  padding: var(--dialog-modal-footer-padding);
+  background-color: var(--color-background);
+  .btn {
+    font-size: var(--lookup-dialog-footer-button-font-size);
+    font-weight: var(--lookup-dialog-footer-button-font-weight);
+    width: var(--dialog-dialog-footer-button-width);
+    height: var(--dialog-footer-button-height);
+    border-radius: var(--dialog-footer-button-border-radius);
+  }
+
+  .btn:focus {
+    box-shadow: var(--dialog-footer-button-box-shadow-on-focus);
+  }
+
+  .ai-confirm-button {
+    &[disabled] {
+      cursor: var(--editor-button-disabled-cursor);
+      opacity: var(--dialog-popup-save-button-disabled-opacity);
+    }
+  }
+
+  .btn-cancel {
+    opacity: var(--dialog-popup-save-button-cancel-opacity) !important;
+    cursor: var(--dialog-footer-cancel-button-cursor-on-hover);
+
+    &:hover {
+      opacity: var(--dialog-popup-save-button-cancel-opacity) !important;
+    }
+  }
+}
+
+.modal-body {
+  height: var(--dialog-body-model-height);
+  background-color: var(--color-background--lighten-80) !important;
+  overflow: var(--dialog-body-model-overflow);
+  min-height: var(--dialog-min-height);
+  ng-component {
+    width: var(--editor-height-width);
+  }
+}
+
+.modal-dialog {
+  max-width: var(--dialog-max-width);
+  width: var(--dialog-width);
+  font-family: var(--font-family);
+  font-size: var(--editor-html-font-size);
+}
+.modal-content {
+  border: var(--dilaog-content-border) !important;
+}

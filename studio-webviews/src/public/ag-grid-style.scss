@@ -1,0 +1,312 @@
+:root {
+    --ag-grid-container-button-border: none;
+    --ag-grid-container-button-box-shadow: 0 2px 5px 0 rgba(var(--text-color), 0.26);
+    --ag-grid-container-button-transition: all ease-out 0.2s 0.1s;
+    --ag-grid-container-button-position: relative;
+    --ag-grid-container-button-min-width: 30px;
+    --ag-grid-container-button-height: 29px;
+    --ag-grid-container-button-padding-top: 3px;
+    --ag-grid-container-button-padding-bottom: 3px;
+    --ag-grid-container-button-padding-left: 6px;
+    --ag-grid-container-button-padding-right: 6px;
+    --ag-grid-container-button-span-display: inline-flex;
+    --ag-grid-container-button-margin-left: 10px;
+    --ag-grid-container-data-grid-min-height: 0px;
+
+    --ag-grid-container-ag-grid-angular-min-height: 189px;
+    --ag-grid-container-ag-grid-angular-width: 100%;
+
+    --ag-grid-container-ag-header-height: 50px;
+    --ag-grid-container-header-padding-top: 5px;
+    --ag-grid-container-ag-header-row-height: 25px;
+    --ag-grid-container-ag-hide-header-display: none;
+
+    --ag-grid-container-inline-editing-input-border-radius: unset;
+    --ag-grid-container-inline-editing-input-focus-box-shadow: unset;
+
+    --ag-grid-container-row-transparent-background: transparent;
+
+    --ag-cell-line-height: 28px;
+    --ag-grid-container-font-size: 12px;
+
+    --ag-grid-container-font-weight: 700;
+    --ag-grid-container-height: 20px;
+    --ag-grid-container-min-height: 15px;
+    --ag-grid-container-text-transform: uppercase;
+
+    --ag-grid-center-cols-container-max-height: 95%;
+    --ag-grid-center-cols-container-center-cols-viewport-width: fit-content;
+    --ag-grid-container-header-border-bottom: none;
+    --ag-grid-container-input-bottom: 1px;
+    --ag-grid-center-height-margin: 1px;
+    --ag-input-field-input-max-width: 100%;
+
+    --ag-grid-center-odd-row-background-color: rgba(130, 130, 130, 0.04);
+    --ag-grid-center-hover-background-color: var(--vscode-list-inactiveSelectionBackground);
+
+    --ag-grid-cell-padding: 0 4px 0 4px;
+    --ag-grid-cell-focused-icons-opacity: 0.8;
+    --ag-grid-center-cols-webkit-scrollbar-height: 9px;
+    --ag-grid-scrollbar-corner-background-color: transparent;
+}
+
+.ai-button-ag-grid {
+    background-color: var(--vscode-button-background);
+    border: var(--ag-grid-container-button-border);
+    border-radius: var(--command-button-base-button-border-radius);
+    box-shadow: var(--ag-grid-container-button-box-shadow);
+    color: var(--color-button-foreground);
+    height: var(--editor-button-height);
+    line-height: var(--editor-button-line-height);
+    min-width: var(--ag-grid-container-button-min-width);
+    outline: var(--ag-grid-container-button-outline);
+    padding: var(--editor-button-padding);
+    position: var(--ag-grid-container-button-position);
+    transition: var(--ag-grid-container-button-transition);
+    vertical-align: var(--ag-grid-container-button-vertical-align);
+    white-space: var(--editor-white-space);
+
+    &:hover {
+        background-color: var(--vscode-button-hoverBackground);
+        cursor: var(--ag-grid-ai-button-cursor-on-hover);
+    }
+
+    span {
+        display: var(--ag-grid-container-button-span-display);
+        font-size: var(--ag-grid-container-button-span-font-size);
+        font-weight: var(--ag-grid-container-button-span-font-weight);
+    }
+
+    margin-left: var(--ag-grid-container-button-margin-left);
+}
+
+.vscode-table {
+    &.table-with-filter ag-grid-angular {
+        .ag-header {
+            height: var(--ag-grid-container-ag-header-height) !important;
+
+            min-height: var(--ag-grid-container-ag-header-height) !important;
+        }
+
+        .ag-header-row {
+            height: var(--ag-grid-container-ag-header-row-height) !important;
+            min-height: var(--ag-grid-container-ag-header-row-height) !important;
+        }
+    }
+
+    ag-grid-angular {
+
+        .ag-layout-auto-height .ag-center-cols-clipper,
+        .ag-layout-auto-height .ag-center-cols-container,
+        .ag-layout-print .ag-center-cols-clipper,
+        .ag-layout-print .ag-center-cols-container {
+            min-height: var(--ag-grid-container-data-grid-min-height);
+        }
+
+        &.hide-header {
+
+            .ag-header,
+            .ag-header-row {
+                display: var(--ag-grid-container-ag-hide-header-display);
+            }
+        }
+
+        &.code-table-ag-grid::-webkit-scrollbar-corner {
+            background-color: var(--ag-grid-scrollbar-corner-background-color) !important;
+        }
+
+        &.code-table-ag-grid::-webkit-scrollbar-thumb {
+            background: var(--vscode-scrollbarSlider-background) !important;
+        }
+
+        &.code-table-ag-grid::-webkit-scrollbar-thumb:active {
+            background: var(--vscode-scrollbarSlider-activeBackground) !important;
+        }
+
+        &.code-table-ag-grid::-webkit-scrollbar-thumb:hover {
+            background: var(--vscode-scrollbarSlider-hoverBackground) !important;
+        }
+
+        &.code-table-ag-grid::-webkit-scrollbar {
+            width: var(--editor-webkit-scrollbar-webkit-scrollbar-width-height);
+            height: var(--editor-webkit-scrollbar-webkit-scrollbar-width-height);
+        }
+
+        width: var(--ag-grid-container-ag-grid-angular-width) !important;
+        margin-top: var(--ag-grid-container-header-padding-top) !important;
+
+        .ag-cell {
+            line-height: var(--ag-cell-line-height) !important;
+            font-size: var(--ag-grid-container-font-size) !important;
+            font-family: var(--ag-grid-container-font-family) !important;
+        }
+
+        .ag-overlay-no-rows-center {
+            color: var(--text-color);
+        }
+
+        .ag-cell-label-container {
+            font-size: var(--ag-grid-container-font-size) !important;
+            font-weight: var(--ag-grid-container-font-weight) !important;
+        }
+
+        .ag-center-cols-container {
+            max-height: var(--ag-grid-center-cols-container-max-height) !important;
+
+            .ag-center-cols-viewport {
+                width: var(--ag-grid-center-cols-container-center-cols-viewport-width) !important;
+            }
+        }
+
+        .ag-header-row-floating-filter {
+            top: var(--ag-grid-container-ag-header-row-height) !important;
+        }
+
+        .ag-row,
+        .ag-header-row,
+        .ag-pinned-right-header,
+        .ag-header-row,
+        .ag-header-row-column,
+        .ag-header-cell,
+        .ag-header,
+        .ag-root-wrapper,
+        .ag-cell {
+            border: var(--ag-grid-container-header-border-bottom) !important;
+        }
+
+        svg path,
+        .ag-icon-filter {
+            .vscode-dark & {
+                color: var(--vscode-dark-color) !important;
+            }
+
+            .vscode-light & {
+                color: var(--vscode-light-color) !important;
+            }
+        }
+
+        input[class^="ag-"][type="text"] {
+            border-radius: var(--ag-grid-container-inline-editing-input-border-radius);
+
+            &:focus {
+                box-shadow: var(--ag-grid-container-inline-editing-input-focus-box-shadow);
+                border: 1px solid;
+            }
+        }
+
+        .ag-input-field-input {
+            &.ag-text-field-input {
+                min-height: var(--ag-grid-container-min-height) !important;
+                margin-bottom: var(--ag-grid-container-input-bottom) !important;
+                margin-right: var(--ag-grid-center-height-margin) !important;
+                margin-left: var(--ag-grid-center-height-margin) !important;
+            }
+
+            background-color: var(--vscode-settings-numberInputBackground) !important;
+            color: var(--text-color) !important;
+            padding: var(--editor-input-padding) !important;
+            font-size: var(--editor-html-font-size) !important;
+            border: 0 !important;
+            height: var(--ag-grid-container-height) !important;
+            max-width: var(--ag-input-field-input-max-width) !important;
+
+            &:focus {
+                outline: 1px solid -webkit-focus-ring-color !important;
+                outline-color: var(--vscode-focusBorder) !important;
+            }
+        }
+
+        .ag-header {
+            background-color: var(--ag-grid-center-odd-row-background-color);
+        }
+
+        .ag-root {
+            background-color: var(--color-background);
+        }
+
+        .ag-row {
+            background-color: var(--ag-grid-container-row-transparent-background);
+        }
+
+        .ag-row.ag-row-selected.ag-row-hover {
+            background-color: var(--vscode-list-activeSelectionBackground);
+        }
+
+        .ag-row.ag-row-inline-editing.ag-row-hover,
+        .ag-row.ag-row-inline-editing,
+        .ag-row.ag-row-editing,
+        .ag-row.ag-row-editing.ag-row-hover {
+            background-color: var(--ag-grid-container-row-transparent-background) !important;
+        }
+
+        .ag-row.ag-row-selected.ag-row-inline-editing.ag-row-hover,
+        .ag-row.ag-row-selected.ag-row-inline-editing,
+        .ag-row.ag-row-selected.ag-row-editing,
+        .ag-row.ag-row-selected.ag-row-editing.ag-row-hover {
+            background-color: var(--ag-grid-container-row-transparent-background) !important;
+        }
+
+        .ag-row.ag-row-selected {
+            background-color: var(--vscode-list-activeSelectionBackground);
+
+            .ag-cell {
+                color: var(--vscode-list-activeSelectionForeground);
+            }
+
+            svg {
+                fill: var(--vscode-list-activeSelectionForeground) !important;
+                opacity: var(--ag-grid-cell-focused-icons-opacity);
+            }
+        }
+
+        .ag-header-cell-label {
+            color: var(--vscode-editorWidget-foreground);
+        }
+
+        .ag-cell {
+            color: var(--text-color);
+        }
+
+        .ag-header-row:after {
+            display: var(--ag-grid-container-header-border-bottom);
+        }
+
+        .ag-row-hover {
+            background-color: var(--vscode-list-inactiveSelectionBackground);
+
+            .vscode-action-button {
+                display: var(--editor-flex-wrap);
+            }
+        }
+
+        .ag-row-odd {
+            background-color: var(--ag-grid-center-odd-row-background-color);
+        }
+
+        .ag-header-cell,
+        .ag-cell {
+            padding: var(--ag-grid-cell-padding) !important;
+        }
+
+        ::-webkit-scrollbar {
+            width: var(--ag-grid-center-cols-webkit-scrollbar-height) !important;
+            height: var(--ag-grid-center-cols-webkit-scrollbar-height) !important;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background-color: var(--ag-grid-scrollbar-corner-background-color) !important;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--vscode-scrollbarSlider-background) !important;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: var(--vscode-scrollbarSlider-activeBackground) !important;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--vscode-scrollbarSlider-hoverBackground) !important;
+        }
+    }
+}

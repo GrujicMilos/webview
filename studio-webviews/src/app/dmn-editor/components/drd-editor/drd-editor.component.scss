@@ -1,0 +1,146 @@
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+
+:root {
+  --drd-editor-container-height: calc(100vh - 32px);
+  --drd-editor-save-right: 15px;
+  --drd-editor-save-z-index: 100;
+  --drd-editor-save-width-height: 48px;
+  --drd-editor-save-icon-padding: 6px;
+  --drd-editor-icon-setting-left: 70px;
+  --drd-editor-theme-toggle-right: 55px;
+
+  --drd-editor-header-width: 100%;
+  --drd-editor-header-height: 32px;
+  --drd-editor-header-padding: 3px 15px;
+  --drd-editor-header-button-padding: 5px 10px;
+  --drd-editor-header-button-border-radius: 4px;
+  --drd-editor-header-button-font-size: 0.8rem;
+  --drd-editor-header-button-line-height: 1;
+  --drd-editor-header-button-webkit-appearance: none;
+
+  --drd-editor-height: 100%;
+
+  --drd-editor-view-drd-left: 10px;
+  --drd-editor-view-drd-cursor: pointer;
+
+  --drd-editor-webkit-scrollbar-width-height: 8px;
+}
+.drd-editor {
+  height: var(--drd-editor-container-height);
+
+  .header {
+    height: var(--drd-editor-header-height);
+    background-color: var(--color-background);
+    width: var(--drd-editor-header-width);
+    padding: var(--drd-editor-header-padding);
+    position: var(--editor-position-relative);
+    display: var(--editor-display-flex);
+
+    .button-flat-primary {
+      padding: var(--drd-editor-header-button-padding);
+      border-radius: var(--drd-editor-header-button-border-radius);
+      font-size: var(--drd-editor-header-button-font-size);
+      line-height: var(--drd-editor-header-button-line-height);
+      -webkit-appearance: var(--drd-editor-header-button-webkit-appearance);
+    }
+    .theme-toggle {
+      position: var(--editor-position-absolute);
+      right: var(--drd-editor-theme-toggle-right);
+      z-index: var(--drd-editor-save-z-index);
+      cursor: var(--drd-cursor-pointer);
+    }
+
+    .save {
+      position: var(--editor-position-absolute);
+      right: var(--drd-editor-save-right);
+      z-index: var(--drd-editor-save-z-index);
+      cursor: var(--drd-cursor-pointer);
+    }
+    .view-drd {
+      position: var(--editor-position-absolute);
+      left: var(--drd-editor-view-drd-left);
+      z-index: var(--drd-editor-save-z-index);
+      cursor: var(--drd-editor-view-drd-cursor);
+    }
+  }
+  .containerRoot {
+    height: var(--editor-height-width);
+    width: var(--editor-height-width);
+    background-color: var(--color-background--lighten-80);
+
+    .drd-container {
+      width: var(--editor-height-width);
+      height: var(--drd-editor-height);
+    }
+  }
+
+  .drd-instance-toolbox-split-area {
+    background-color: var(--color-background);
+    color: var(--editor-vscode-dark-color);
+
+    .vscode-light & {
+      color: var(--editor-vscode-light-color);
+    }
+    .vscode-dark & {
+      color: var(--editor-vscode-dark-color);
+    }
+    font-family: var(--font-family);
+    font-size: var(--editor-html-font-size);
+  }
+}
+
+/*
+if file formatting causes context expression icon to stop working replace the next lines with this
+
+.dmn-icon-context-expression::before {
+  font-family: Font Awesome\ 5 Free;
+  font-weight: 600;
+  text-decoration: inherit;
+  font-style: inherit;
+  font-size: inherit !important;
+  content: '\f1b2';
+}*/
+
+.dmn-icon-context-expression::before {
+  font-family: Font Awesome\ 5 Free;
+  font-weight: 600;
+  text-decoration: inherit;
+  font-style: inherit;
+  font-size: inherit !important;
+  content: '\f1b2';
+}
+.dmn-icon-external-link {
+  position: absolute;
+  font-size: 11px !important;
+  height: 16px !important;
+  top: 24px !important;
+  width: 15px !important;
+  background-color: var(--color-link-foreground) !important;
+  &::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 600;
+    text-decoration: inherit;
+    font-style: inherit;
+    content: '\f35d';
+    font-size: 11px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: var(--drd-editor-webkit-scrollbar-width-height);
+  height: var(--drd-editor-webkit-scrollbar-width-height);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vscode-scrollbarSlider-background);
+}
+::-webkit-scrollbar-thumb:active {
+  background: var(--vscode-scrollbarSlider-activeBackground);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vscode-scrollbarSlider-hoverBackground);
+}

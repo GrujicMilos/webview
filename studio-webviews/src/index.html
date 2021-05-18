@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>WebviewApp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<script>
+  var vscode = undefined;
+
+  if (typeof acquireVsCodeApi !== 'undefined') {
+    vscode = acquireVsCodeApi();
+    console.log(`VSCode acquired.`);
+  }
+
+  let webviewInitRoute = undefined;
+  let webviewInitRouteExtras = undefined;
+  let editorSettings = undefined;
+  window.__adinsure__extension__webviews__ = undefined;
+  window.__adinsure__extension__node_modules__ = "node_modules";
+
+</script>
+
+<body class="main-index">
+  <app-root></app-root>
+</body>
+
+</html>

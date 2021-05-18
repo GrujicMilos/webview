@@ -1,0 +1,1455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:adiDMNDI="http://adacta-fintech.com/schema/1.0/dmndi" id="Definitions_0zscmhw" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.0.0-alpha.2">
+    <decision id="Decision_1hht03m" name="Base Premium Rate">
+        <informationRequirement id="InformationRequirement_0f63ok1">
+            <requiredInput href="#InputData_0934kn7"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_13dg800">
+            <requiredInput href="#InputData_1944x0d"/>
+        </informationRequirement>
+        <decisionTable id="DecisionTable_1p6l1gj">
+            <input id="Input_1">
+                <inputExpression id="InputExpression_1" typeRef="string">
+                    <text>
+                        cascoCoverageProgram
+                    </text>
+                </inputExpression>
+            </input>
+            <input id="InputClause_0wgo646">
+                <inputExpression id="LiteralExpression_03gyj0l" typeRef="string">
+                    <text>
+                        vehicleType
+                    </text>
+                </inputExpression>
+            </input>
+            <output id="OutputClause_0n0zf0j" name="Base Premium Rate" typeRef="double"/>
+            <rule id="DecisionRule_174s8ke">
+                <inputEntry id="UnaryTests_08jxtda">
+                    <text>
+                        "BasicCasco"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1cjd1xo">
+                    <text>
+                        "PersonalVehicle"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0p53thy">
+                    <text>
+                        0.04
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_09rt0zx">
+                <inputEntry id="UnaryTests_1tuv7rz">
+                    <text>
+                        "BasicCasco"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1msxcs6">
+                    <text>
+                        "CargoVehicle"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0i50tyd">
+                    <text>
+                        0.05
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0rxepew">
+                <inputEntry id="UnaryTests_1hwbhuj">
+                    <text>
+                        "BasicCascoPlusTheft"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0mdeep3">
+                    <text>
+                        "PersonalVehicle"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_1anxj1i">
+                    <text>
+                        0.048
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_059j9q1">
+                <inputEntry id="UnaryTests_0krhe3w">
+                    <text>
+                        "BasicCascoPlusTheft"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0u6lq4h">
+                    <text>
+                        "CargoVehicle"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_14xa2a8">
+                    <text>
+                        0.056
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1mssfum">
+                <inputEntry id="UnaryTests_0gmz6n2">
+                    <text>
+                        "BasicCascoPlusTheftPlusLuggage"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1uw9him">
+                    <text>
+                        "PersonalVehicle"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_1k67zaz">
+                    <text>
+                        0.072
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1lih47l">
+                <inputEntry id="UnaryTests_13h11iv">
+                    <text>
+                        "BasicCascoPlusTheftPlusLuggage"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0dxgn2w">
+                    <text>
+                        "CargoVehicle"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_1ttq7wa">
+                    <text>
+                        0.08
+                    </text>
+                </outputEntry>
+            </rule>
+        </decisionTable>
+    </decision>
+    <inputData id="InputData_0934kn7" name="vehicleType"/>
+    <inputData id="InputData_1944x0d" name="cascoCoverageProgram"/>
+    <decision id="Decision_0174ces" name="Costs">
+        <informationRequirement id="InformationRequirement_1jn4fic">
+            <requiredInput href="#InputData_0pnw00v"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_05ac33w">
+            <requiredInput href="#InputData_17qc3pf"/>
+        </informationRequirement>
+        <decisionTable id="DecisionTable_11kou0c">
+            <input id="InputClause_00rcsla">
+                <inputExpression id="LiteralExpression_1s6q5xs" typeRef="string">
+                    <text>
+                        salesChannel
+                    </text>
+                </inputExpression>
+                <inputValues id="UnaryTests_1l672fu">
+                    <text>
+                        "Agent","Bank","Customer Portal","Internal Sales"
+                    </text>
+                </inputValues>
+            </input>
+            <input id="InputClause_0mlm1z0">
+                <inputExpression id="LiteralExpression_1hixmvb" typeRef="string">
+                    <text>
+                        marketSegment
+                    </text>
+                </inputExpression>
+                <inputValues id="UnaryTests_1ss6mk8">
+                    <text>
+                        "Individual","Corporate"
+                    </text>
+                </inputValues>
+            </input>
+            <output id="OutputClause_1oou0zk" name="acquisitionCosts" typeRef="string"/>
+            <output id="OutputClause_1dzqtmy" name="administrationCosts" typeRef="string"/>
+            <rule id="DecisionRule_10n0eqs">
+                <inputEntry id="UnaryTests_1tvn1lo">
+                    <text>
+                        "Agent"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0ihjnhk">
+                    <text>
+                        "Individual"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0gha6il">
+                    <text>
+                        0.15
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_13sjwz6">
+                    <text>
+                        0.02
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_00q1v9x">
+                <inputEntry id="UnaryTests_0j84cnw">
+                    <text>
+                        "Agent"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1gnta0i">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0zensv4">
+                    <text>
+                        0.15
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_1y1uw15">
+                    <text>
+                        0.01
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1tmdpgb">
+                <inputEntry id="UnaryTests_1ym8l9m">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_01t42cq">
+                    <text>
+                        "Individual"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_04rfmem">
+                    <text>
+                        0.10
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_0yj6lk9">
+                    <text>
+                        0.02
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1azninn">
+                <inputEntry id="UnaryTests_0ijx78p">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1wohcwg">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_1buizgz">
+                    <text>
+                        0.10
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_08d8w5b">
+                    <text>
+                        0.01
+                    </text>
+                </outputEntry>
+            </rule>
+        </decisionTable>
+    </decision>
+    <decision id="Decision_0nn9dm3" name="Risks">
+        <informationRequirement id="InformationRequirement_0833ffr">
+            <requiredInput href="#InputData_1944x0d"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_0bdv4ur">
+            <requiredInput href="#InputData_04tdora"/>
+        </informationRequirement>
+        <decisionTable id="DecisionTable_0g4kpwc" hitPolicy="COLLECT">
+            <input id="InputClause_0nfcete">
+                <inputExpression id="LiteralExpression_1h0zk0z" typeRef="string">
+                    <text>
+                        cascoCoverageProgram
+                    </text>
+                </inputExpression>
+            </input>
+            <output id="OutputClause_0j8u7jy" name="code" typeRef="string"/>
+            <output id="OutputClause_187unt9" name="sumInsured" typeRef="string"/>
+            <rule id="DecisionRule_0hr12dv">
+                <inputEntry id="UnaryTests_1y07wpf">
+                    <text>
+                        "BasicCasco", "BasicCascoPlusTheft", "BasicCascoPlusTheftPlusLuggage"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_1i2j8it">
+                    <text>
+                        "VehicleDamage"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_07zgbjs">
+                    <text>
+                        vehicleValue
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0v8oalv">
+                <inputEntry id="UnaryTests_1n7080j">
+                    <text>
+                        "BasicCasco", "BasicCascoPlusTheft", "BasicCascoPlusTheftPlusLuggage"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0ll8gqh">
+                    <text>
+                        "Explosion"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_0hfbsuu">
+                    <text>
+                        vehicleValue
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0uvj90x">
+                <inputEntry id="UnaryTests_0qmo1fc">
+                    <text>
+                        "BasicCasco", "BasicCascoPlusTheft", "BasicCascoPlusTheftPlusLuggage"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0m1yuqq">
+                    <text>
+                        "TraficAccident"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_1pubxu5">
+                    <text>
+                        vehicleValue
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0w8iyo1">
+                <inputEntry id="UnaryTests_1uo4pef">
+                    <text>
+                        "BasicCasco", "BasicCascoPlusTheft", "BasicCascoPlusTheftPlusLuggage"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_1ieay3m">
+                    <text>
+                        "Fire"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_1m3nvar">
+                    <text>
+                        vehicleValue
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1dubdkt">
+                <inputEntry id="UnaryTests_1jksrqx">
+                    <text>
+                        "BasicCasco", "BasicCascoPlusTheft", "BasicCascoPlusTheftPlusLuggage"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0p9jhyo">
+                    <text>
+                        "Storm"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_16zf74n">
+                    <text>
+                        vehicleValue
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1p77kjl">
+                <inputEntry id="UnaryTests_053122n">
+                    <text>
+                        "BasicCasco", "BasicCascoPlusTheft", "BasicCascoPlusTheftPlusLuggage"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_13mgm3c">
+                    <text>
+                        "Flood"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_0axthcr">
+                    <text>
+                        vehicleValue
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0te7w91">
+                <inputEntry id="UnaryTests_0k0yi10">
+                    <text>
+                        "BasicCascoPlusTheft", "BasicCascoPlusTheftPlusLuggage"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0evuut9">
+                    <text>
+                        "Theft"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_0z3nr9q">
+                    <text>
+                        vehicleValue
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0okvudi">
+                <inputEntry id="UnaryTests_1s6fauh">
+                    <text>
+                        "BasicCascoPlusTheftPlusLuggage"
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_1p7p04g">
+                    <text>
+                        "Luggage"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_0tlifc1">
+                    <text>
+                        vehicleValue
+                    </text>
+                </outputEntry>
+            </rule>
+        </decisionTable>
+    </decision>
+    <decision id="Decision_11itcbd" name="SurchargesAndDiscounts">
+        <informationRequirement id="InformationRequirement_1w3ydiv">
+            <requiredInput href="#InputData_06t30xb"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_0fetlev">
+            <requiredInput href="#InputData_1ip2njq"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_1enrgnt">
+            <requiredInput href="#InputData_055p11s"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_11jfqft">
+            <requiredInput href="#InputData_0a5bwiq"/>
+        </informationRequirement>
+        <decisionTable id="DecisionTable_1dyvi0k" hitPolicy="COLLECT">
+            <input id="InputClause_0u1oe7i">
+                <inputExpression id="LiteralExpression_09zzpxr" typeRef="string">
+                    <text>
+                        coverageGroupDeductible
+                    </text>
+                </inputExpression>
+            </input>
+            <input id="InputClause_0ri24gf">
+                <inputExpression id="LiteralExpression_1aty865" typeRef="integer">
+                    <text>
+                        bonusMalus
+                    </text>
+                </inputExpression>
+            </input>
+            <input id="InputClause_0phkucy">
+                <inputExpression id="LiteralExpression_0aty58y" typeRef="boolean">
+                    <text>
+                        wholeEUCoverage
+                    </text>
+                </inputExpression>
+            </input>
+            <input id="InputClause_0kf5jz8">
+                <inputExpression id="LiteralExpression_1u43xh1" typeRef="integer">
+                    <text>
+                        drivingExperience
+                    </text>
+                </inputExpression>
+            </input>
+            <output id="OutputClause_16mj6ud" name="discount" typeRef="double"/>
+            <output id="OutputClause_1xtv05d" name="surcharge" typeRef="double"/>
+            <rule id="DecisionRule_0jb80a9">
+                <inputEntry id="UnaryTests_0xj0jwu">
+                    <text>
+                        "1%minimum100EUR"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1tw08xx">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_16dmb6z">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0ibh3ky">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0hqehgo">
+                    <text>
+                        2
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_1x5mkku">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1lq4xw4">
+                <inputEntry id="UnaryTests_04nvshi">
+                    <text>
+                        "1%minimum500EUR"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0x581yi">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0aqqovk">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1q8d7ts">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0ykb9bb">
+                    <text>
+                        5
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_14a9559">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0j9zcar">
+                <inputEntry id="UnaryTests_0ko23ne">
+                    <text>
+                        "1%minimum1000EUR"
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_18lb63p">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_08zmhqm">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1w733t8">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_1bevkki">
+                    <text>
+                        10
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_03qips6">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0ihzksp">
+                <inputEntry id="UnaryTests_1kjypsy">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0o22i1e">
+                    <text>
+                        0
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1e7wi5n">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0u8g98k">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_0tofjp3">
+                    <text>
+                        50
+                    </text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_0pokh8d">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0664k27">
+                <inputEntry id="UnaryTests_004e1gi">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0wfynr6">
+                    <text>
+                        1
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0h7o2rr">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_19yh6io">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_0tzeotv">
+                    <text>
+                        45
+                    </text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_173dd7g">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1669iz9">
+                <inputEntry id="UnaryTests_0dwwaan">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_11otfbb">
+                    <text>
+                        2
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0k9lefb">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0pwat03">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_03u1iss">
+                    <text>
+                        40
+                    </text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_1uedqfb">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1q18lmi">
+                <inputEntry id="UnaryTests_1s969ky">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_08hrqg8">
+                    <text>
+                        3
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_106sjyc">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0jsojp3">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_0ciic84">
+                    <text>
+                        35
+                    </text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_0i7njw3">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_080c6fg">
+                <inputEntry id="UnaryTests_1fbi167">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1ekprz2">
+                    <text>
+                        4
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0ptpoiw">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1cybl6n">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_10iejj3">
+                    <text>
+                        30
+                    </text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_0omotn7">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1ev2wr7">
+                <inputEntry id="UnaryTests_05vc5ik">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1swjqtp">
+                    <text>
+                        5
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1tjv0h1">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1bfazee">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_09caaph">
+                    <text>
+                        25
+                    </text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_14ru5qv">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1c8hnzr">
+                <inputEntry id="UnaryTests_05g6l2m">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0mc7u6t">
+                    <text>
+                        6
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_08y4yav">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1rlfh8r">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_1tacl50">
+                    <text>
+                        20
+                    </text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_1t6ymqt">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0b9aliw">
+                <inputEntry id="UnaryTests_110q266">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_13b8rue">
+                    <text>
+                        7
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0884li7">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_198gjkv">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_0p51xxo">
+                    <text>
+                        15
+                    </text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_1rojtc0">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_08ples0">
+                <inputEntry id="UnaryTests_08sppmv">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1lrkff6">
+                    <text>
+                        8
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1r30h64">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_17o9gte">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_0sxkelb">
+                    <text>
+                        10
+                    </text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_0mng7q8">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1lyl8es">
+                <inputEntry id="UnaryTests_0omyr8r">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0bvrb0x">
+                    <text>
+                        9
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_02a5k7r">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_04gogz4">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_1vsvo34">
+                    <text>
+                        5
+                    </text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_0f48r9p">
+                    <text></text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1bif85n">
+                <inputEntry id="UnaryTests_15dnlus">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0bg2m3i">
+                    <text>
+                        11
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0sg7hyl">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1j4zd97">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_0a4r3ic">
+                    <text></text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_0lsp10g">
+                    <text>
+                        5
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_14eq3js">
+                <inputEntry id="UnaryTests_05gdbdu">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1dnif7b">
+                    <text>
+                        12
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0tnd4w0">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1glzap6">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_0pybvww">
+                    <text></text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_0cl41j5">
+                    <text>
+                        10
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_11zvzka">
+                <inputEntry id="UnaryTests_0vg6dfr">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1l6yx38">
+                    <text>
+                        13
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0gpbhe2">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_17gxmwr">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_05d7slb">
+                    <text></text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_030z5pe">
+                    <text>
+                        20
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1jyeqbj">
+                <inputEntry id="UnaryTests_07gcdzx">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1xcq29h">
+                    <text>
+                        14
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1fo2lyd">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1uddvdf">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_18sjavf">
+                    <text></text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_0kz063c">
+                    <text>
+                        30
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_10w1ta7">
+                <inputEntry id="UnaryTests_1a3gw57">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1xjntzf">
+                    <text>
+                        15
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_08uskf6">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1k9b2ys">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_0whbdvm">
+                    <text></text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_1pqzzgw">
+                    <text>
+                        45
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0a586en">
+                <inputEntry id="UnaryTests_1l6ubtc">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1o34d71">
+                    <text>
+                        13
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_06k89br">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0r178jk">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_077gg4i">
+                    <text></text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_1vv1k5z">
+                    <text>
+                        60
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1jzv5nz">
+                <inputEntry id="UnaryTests_0fq28d9">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0jmfd9d">
+                    <text>
+                        17
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1tts3ug">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1p84erz">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_17s2aj3">
+                    <text></text>
+                </outputEntry>
+                <outputEntry id="UnaryTests_1ci8xrb">
+                    <text>
+                        80
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1hlxvjg">
+                <inputEntry id="UnaryTests_028yg7w">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0i6qalk">
+                    <text>
+                        18
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0c8nyry">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0lb851x">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_1aqaavg">
+                    <text></text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_197jang">
+                    <text>
+                        100
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_11648es">
+                <inputEntry id="UnaryTests_0ch040n">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0nkre58">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0y33gpr">
+                    <text>
+                        true
+                    </text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1pf9tel">
+                    <text></text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_114j6if">
+                    <text></text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_08r6a8x">
+                    <text>
+                        7
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1kgm106">
+                <inputEntry id="UnaryTests_1w1giy1">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_1ixih21">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_0hl1tr5">
+                    <text></text>
+                </inputEntry>
+                <inputEntry id="UnaryTests_106l8cz">
+                    <text>
+                        &gt; 2
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0quxfiz">
+                    <text>
+                        15
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_0p2egvi">
+                    <text></text>
+                </outputEntry>
+            </rule>
+        </decisionTable>
+    </decision>
+    <inputData id="InputData_0pnw00v" name="salesChannel"/>
+    <inputData id="InputData_17qc3pf" name="marketSegment"/>
+    <inputData id="InputData_06t30xb" name="coverageGroupDeductible"/>
+    <inputData id="InputData_1ip2njq" name="bonusMalus"/>
+    <inputData id="InputData_055p11s" name="safeDriver"/>
+    <inputData id="InputData_0a5bwiq" name="wholeEUCoverage"/>
+    <inputData id="InputData_04tdora" name="vehicleValue"/>
+    <inputData id="InputData_01r0obv" name="cascoSurcharge"/>
+    <inputData id="InputData_1p3zge6" name="policyLevelLimitAmount"/>
+    <decision id="Decision_03wjbzw" name="Limits">
+        <informationRequirement id="InformationRequirement_1ixjn98">
+            <requiredInput href="#InputData_1p3zge6"/>
+        </informationRequirement>
+        <decisionTable id="DecisionTable_14faxrs" hitPolicy="COLLECT">
+            <input id="InputClause_08lbp1b">
+                <inputExpression id="LiteralExpression_1gpssrq" typeRef="string">
+                    <text>
+                        policyLevelLimitAmount
+                    </text>
+                </inputExpression>
+            </input>
+            <output id="OutputClause_132dhhx" name="value" typeRef="string"/>
+            <output id="OutputClause_0gjeldn" name="quantityType" typeRef="string"/>
+            <output id="OutputClause_0tjs1nh" name="riskCode" typeRef="string"/>
+            <output id="OutputClause_0wxy90h" name="aggregationType" typeRef="string"/>
+            <output id="OutputClause_15nfa8e" name="selectionScope" typeRef="string"/>
+            <output id="OutputClause_0ki8qh7" name="conditionalOnClaim" typeRef="boolean"/>
+            <output id="OutputClause_15xhteh" name="paymentFrequency" typeRef="string"/>
+            <output id="OutputClause_0teqq9r" name="resetAfterNoOfYears" typeRef="string"/>
+            <rule id="DecisionRule_1mkwmhu">
+                <inputEntry id="UnaryTests_1ta9hvr">
+                    <text>
+                        &gt; 0
+                    </text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0wt0wrz">
+                    <text>
+                        policyLevelLimitAmount
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_065zwvb">
+                    <text>
+                        "NominalAmount"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_00msekj">
+                    <text></text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_0a869nj">
+                    <text>
+                        "PolicyDuration"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_162fp51">
+                    <text>
+                        "Policy"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_0a6w84b">
+                    <text>
+                        true
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_0ubcd3j">
+                    <text>
+                        "NoOfYears"
+                    </text>
+                </outputEntry>
+                <outputEntry id="LiteralExpression_0mbnkpj">
+                    <text>
+                        1
+                    </text>
+                </outputEntry>
+            </rule>
+        </decisionTable>
+    </decision>
+    <decision id="Decision_0qju7ng" name="Net Premium">
+        <variable id="InformationItem_0aba8ef" name="Net Premium"/>
+        <informationRequirement id="InformationRequirement_13d2n2m">
+            <requiredInput href="#InputData_04tdora"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_078txa8">
+            <requiredDecision href="#Decision_1hht03m"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_1so13qh">
+            <requiredDecision href="#Decision_11itcbd"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_1e5ws6t">
+            <requiredInput href="#InputData_01r0obv"/>
+        </informationRequirement>
+        <context id="Context_02z416b">
+            <contextEntry id="ContextEntry_1ebz5hy">
+                <variable id="InformationItem_0flcfzx" name="All Adjustments"/>
+                <literalExpression id="LiteralExpression_1krkesc" expressionLanguage="feel">
+                    <text>
+                        append(SurchargesAndDiscounts, { surcharge: if cascoSurcharge != null then cascoSurcharge * 100 else 0})
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_0m4q5mu">
+                <variable id="InformationItem_1sp3wlg" name="Total Correction"/>
+                <literalExpression id="LiteralExpression_1ys65an" expressionLanguage="feel">
+                    <text>
+                        prod(for adjustment in All Adjustments return (1 - (if adjustment.discount != null then adjustment.discount else 0) / 100) * (1 + (if adjustment.surcharge != null then adjustment.surcharge else 0) / 100))
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_0uc26wh">
+                <literalExpression id="LiteralExpression_17hwhu6" expressionLanguage="feel">
+                    <text>
+                        vehicleValue * Base Premium Rate * Total Correction
+                    </text>
+                </literalExpression>
+            </contextEntry>
+        </context>
+    </decision>
+    <decision id="Decision_0qqgkne" name="Premium">
+        <variable id="InformationItem_0z6v3vo" name="Premium"/>
+        <informationRequirement id="InformationRequirement_0lm8gtr">
+            <requiredDecision href="#Decision_03wjbzw"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_1ygpi79">
+            <requiredDecision href="#Decision_0nn9dm3"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_0hn1ga6">
+            <requiredDecision href="#Decision_0qju7ng"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_1m636hm">
+            <requiredDecision href="#Decision_0174ces"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_0t4y1d5">
+            <requiredDecision href="#Decision_1hht03m"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_1w3ngtl">
+            <requiredInput href="#InputData_1w7ft15"/>
+        </informationRequirement>
+        <informationRequirement id="InformationRequirement_1xemdtp">
+            <requiredDecision href="#Decision_1gg4g1k"/>
+        </informationRequirement>
+        <context id="Context_0wolrrx">
+            <contextEntry id="ContextEntry_048mf2b">
+                <variable id="InformationItem_02ch6cs" name="premium"/>
+                <literalExpression id="LiteralExpression_1caxkpz" expressionLanguage="feel">
+                    <text>
+                        decimal(Net Premium * (1 + Costs.acquisitionCosts) * (1 + Costs.administrationCosts) * MotionSCasco, 0)
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_021p3tf">
+                <variable id="InformationItem_17yt36r" name="yearlyPremium"/>
+                <literalExpression id="LiteralExpression_1s5gmkx" expressionLanguage="feel">
+                    <text>
+                        premium
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_1lwih1y">
+                <variable id="InformationItem_1xgg0w1" name="paymentFrequency"/>
+                <literalExpression id="LiteralExpression_0y1nby0" expressionLanguage="feel">
+                    <text>
+                        paymentFrequency
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_174ncb4">
+                <variable id="InformationItem_00bh6t2" name="tariffRate"/>
+                <literalExpression id="LiteralExpression_1j6rmk6" expressionLanguage="feel">
+                    <text>
+                        Base Premium Rate
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_1hsai4m">
+                <variable id="InformationItem_0iya9u5" name="tariffUnitCode"/>
+                <literalExpression id="LiteralExpression_1c52lfj" expressionLanguage="feel">
+                    <text>
+                        "03-" + vehicleType
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_0kmlesj">
+                <variable id="InformationItem_19qdvs2" name="mainRisk"/>
+                <literalExpression id="LiteralExpression_1mxapa3" expressionLanguage="feel">
+                    <text>
+                        "VehicleDamage"
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_0y9ta2c">
+                <variable id="InformationItem_05vcy0e" name="risks"/>
+                <literalExpression id="LiteralExpression_1c7x7d4" expressionLanguage="feel">
+                    <text>
+                        Risks
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_11b4rso">
+                <variable id="InformationItem_0bjlhr8" name="limits"/>
+                <literalExpression id="LiteralExpression_1x8vq8d" expressionLanguage="feel">
+                    <text>
+                        Limits
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_14n4dh5">
+                <variable id="InformationItem_0yvx06q" name="coverageCurrency"/>
+                <literalExpression id="LiteralExpression_1wmpfn1" expressionLanguage="feel">
+                    <text>
+                        currencyCode
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_0rwvmi8">
+                <variable id="InformationItem_019z3aa" name="commissionRate"/>
+                <literalExpression id="LiteralExpression_0ensuum" expressionLanguage="feel">
+                    <text>
+                        15
+                    </text>
+                </literalExpression>
+            </contextEntry>
+            <contextEntry id="ContextEntry_1qn0x4y">
+                <literalExpression id="LiteralExpression_0aa1e3r" expressionLanguage="feel"/>
+            </contextEntry>
+        </context>
+    </decision>
+    <inputData id="InputData_1w7ft15" name="currencyCode"/>
+    <inputData id="InputData_16grdmw" name="motionSFactor"/>
+    <decision id="Decision_1gg4g1k" name="MotionSCasco">
+        <informationRequirement id="InformationRequirement_0ssgldg">
+            <requiredInput href="#InputData_16grdmw"/>
+        </informationRequirement>
+        <decisionTable id="DecisionTable_09zg38e">
+            <input id="InputClause_1o1ar8h">
+                <inputExpression id="LiteralExpression_0rylfuz" typeRef="string">
+                    <text>
+                        motionSFactor
+                    </text>
+                </inputExpression>
+            </input>
+            <output id="OutputClause_13ufk06" name="cascoFactor" typeRef="string"/>
+            <annotation name="annotation"/>
+            <rule id="DecisionRule_1rq5jtl">
+                <inputEntry id="UnaryTests_11quzpo">
+                    <text>
+                        &gt;0
+                    </text>
+                </inputEntry>
+                <outputEntry id="UnaryTests_1gm8njw" expressionLanguage="feel">
+                    <text>
+                        motionSFactor
+                    </text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_0b9emic">
+                <inputEntry id="UnaryTests_1j86i3s"/>
+                <outputEntry id="UnaryTests_0nihtqr">
+                    <text>
+                        1
+                    </text>
+                </outputEntry>
+            </rule>
+        </decisionTable>
+    </decision>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram>
+            <di:extension>
+                <adiDMNDI:ElementsWidthsExtension>
+                    <adiDMNDI:ElementWidths dmnElementRef="DecisionTable_09zg38e">
+                        <adiDMNDI:ElementWidth dmnElementRef="InputClause_1o1ar8h" value="200"/>
+                        <adiDMNDI:ElementWidth dmnElementRef="OutputClause_13ufk06" value="200"/>
+                        <adiDMNDI:ElementWidth dmnElementRef="annotation" value="200"/>
+                    </adiDMNDI:ElementWidths>
+                </adiDMNDI:ElementsWidthsExtension>
+            </di:extension>
+            <dmndi:DMNShape dmnElementRef="Decision_1hht03m">
+                <dc:Bounds height="80" width="180" x="510" y="370"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="DMNShape_1gtdlv1" dmnElementRef="InputData_0934kn7">
+                <dc:Bounds height="45" width="125" x="424" y="517"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_05avpzk" dmnElementRef="InformationRequirement_0f63ok1">
+                <di:waypoint x="487" y="517"/>
+                <di:waypoint x="630" y="470"/>
+                <di:waypoint x="630" y="450"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_0nmj8va" dmnElementRef="InputData_1944x0d">
+                <dc:Bounds height="45" width="125" x="187" y="477"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_1sy2pbq" dmnElementRef="InformationRequirement_13dg800">
+                <di:waypoint x="250" y="477"/>
+                <di:waypoint x="570" y="470"/>
+                <di:waypoint x="570" y="450"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_08xublz" dmnElementRef="Decision_0174ces">
+                <dc:Bounds height="80" width="180" x="770" y="220"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="DMNShape_0y0hwkz" dmnElementRef="Decision_0nn9dm3">
+                <dc:Bounds height="80" width="180" x="370" y="220"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="DMNShape_0rvmk5c" dmnElementRef="Decision_11itcbd">
+                <dc:Bounds height="80" width="180" x="720" y="370"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_03td9dl" dmnElementRef="InformationRequirement_0833ffr">
+                <di:waypoint x="250" y="477"/>
+                <di:waypoint x="430" y="320"/>
+                <di:waypoint x="430" y="300"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_1d6okez" dmnElementRef="InputData_0pnw00v">
+                <dc:Bounds height="45" width="125" x="997" y="277"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_0jqbkz7" dmnElementRef="InformationRequirement_1jn4fic">
+                <di:waypoint x="997" y="300"/>
+                <di:waypoint x="970" y="273"/>
+                <di:waypoint x="950" y="273"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_0hl3xio" dmnElementRef="InputData_17qc3pf">
+                <dc:Bounds height="45" width="125" x="997" y="197"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_0acl8gu" dmnElementRef="InformationRequirement_05ac33w">
+                <di:waypoint x="997" y="220"/>
+                <di:waypoint x="970" y="247"/>
+                <di:waypoint x="950" y="247"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_1fsbyoo" dmnElementRef="InputData_06t30xb">
+                <dc:Bounds height="45" width="125" x="566" y="517"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_0zbamed" dmnElementRef="InformationRequirement_1w3ydiv">
+                <di:waypoint x="629" y="517"/>
+                <di:waypoint x="756" y="470"/>
+                <di:waypoint x="756" y="450"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_1xng8lb" dmnElementRef="InputData_1ip2njq">
+                <dc:Bounds height="45" width="125" x="850" y="517"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_0giu1wo" dmnElementRef="InformationRequirement_0fetlev">
+                <di:waypoint x="913" y="517"/>
+                <di:waypoint x="828" y="470"/>
+                <di:waypoint x="828" y="450"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_1n1vsy4" dmnElementRef="InputData_055p11s">
+                <dc:Bounds height="45" width="125" x="987" y="517"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_1n0lryy" dmnElementRef="InformationRequirement_1enrgnt">
+                <di:waypoint x="1050" y="517"/>
+                <di:waypoint x="864" y="470"/>
+                <di:waypoint x="864" y="450"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_0ey6tm6" dmnElementRef="InputData_0a5bwiq">
+                <dc:Bounds height="45" width="125" x="708" y="517"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_1ywg8e5" dmnElementRef="InformationRequirement_11jfqft">
+                <di:waypoint x="771" y="517"/>
+                <di:waypoint x="792" y="470"/>
+                <di:waypoint x="792" y="450"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_1qnmgk8" dmnElementRef="InputData_04tdora">
+                <dc:Bounds height="45" width="125" x="357" y="387"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_1dqvox7" dmnElementRef="InformationRequirement_0bdv4ur">
+                <di:waypoint x="420" y="387"/>
+                <di:waypoint x="490" y="320"/>
+                <di:waypoint x="490" y="300"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_1ah8zrx" dmnElementRef="InputData_01r0obv">
+                <dc:Bounds height="45" width="125" x="947" y="367"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="DMNShape_12wqew1" dmnElementRef="InputData_1p3zge6">
+                <dc:Bounds height="45" width="125" x="187" y="347"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="DMNShape_1yw02jx" dmnElementRef="Decision_03wjbzw">
+                <dc:Bounds height="80" width="180" x="170" y="220"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_10ly717" dmnElementRef="InformationRequirement_1ixjn98">
+                <di:waypoint x="250" y="347"/>
+                <di:waypoint x="260" y="320"/>
+                <di:waypoint x="260" y="300"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_178tvu3" dmnElementRef="Decision_0qju7ng">
+                <dc:Bounds height="80" width="180" x="570" y="220"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_1yx6j8v" dmnElementRef="InformationRequirement_13d2n2m">
+                <di:waypoint x="420" y="387"/>
+                <di:waypoint x="606" y="320"/>
+                <di:waypoint x="606" y="300"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="DMNEdge_1xw9aw2" dmnElementRef="InformationRequirement_078txa8">
+                <di:waypoint x="600" y="370"/>
+                <di:waypoint x="642" y="320"/>
+                <di:waypoint x="642" y="300"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="DMNEdge_17r0m33" dmnElementRef="InformationRequirement_1so13qh">
+                <di:waypoint x="810" y="370"/>
+                <di:waypoint x="678" y="320"/>
+                <di:waypoint x="678" y="300"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="DMNEdge_17pugbd" dmnElementRef="InformationRequirement_1e5ws6t">
+                <di:waypoint x="1010" y="367"/>
+                <di:waypoint x="714" y="320"/>
+                <di:waypoint x="714" y="300"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_029y9oe" dmnElementRef="Decision_0qqgkne">
+                <dc:Bounds height="80" width="180" x="480" y="30"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_077hmka" dmnElementRef="InformationRequirement_0lm8gtr">
+                <di:waypoint x="260" y="220"/>
+                <di:waypoint x="531" y="130"/>
+                <di:waypoint x="531" y="110"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="DMNEdge_1oqreal" dmnElementRef="InformationRequirement_1ygpi79">
+                <di:waypoint x="460" y="220"/>
+                <di:waypoint x="557" y="130"/>
+                <di:waypoint x="557" y="110"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="DMNEdge_0gr5bpu" dmnElementRef="InformationRequirement_0hn1ga6">
+                <di:waypoint x="660" y="220"/>
+                <di:waypoint x="609" y="130"/>
+                <di:waypoint x="609" y="110"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="DMNEdge_1o24w16" dmnElementRef="InformationRequirement_1m636hm">
+                <di:waypoint x="860" y="220"/>
+                <di:waypoint x="634" y="130"/>
+                <di:waypoint x="634" y="110"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="DMNEdge_0444uz2" dmnElementRef="InformationRequirement_0t4y1d5">
+                <di:waypoint x="600" y="370"/>
+                <di:waypoint x="583" y="130"/>
+                <di:waypoint x="583" y="110"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_06f2eft" dmnElementRef="InputData_1w7ft15">
+                <dc:Bounds height="45" width="125" x="798" y="88"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_0dmgz3e" dmnElementRef="InformationRequirement_1w3ngtl">
+                <di:waypoint x="798" y="111"/>
+                <di:waypoint x="680" y="70"/>
+                <di:waypoint x="660" y="70"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_12owzyv" dmnElementRef="InputData_16grdmw">
+                <dc:Bounds height="45" width="125" x="37" y="17"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_1p85x7c" dmnElementRef="InformationRequirement_0ssgldg">
+                <di:waypoint x="100" y="62"/>
+                <di:waypoint x="100" y="100"/>
+                <di:waypoint x="100" y="120"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="DMNEdge_0ul7ffg" dmnElementRef="InformationRequirement_1xemdtp">
+                <di:waypoint x="100" y="120"/>
+                <di:waypoint x="506" y="130"/>
+                <di:waypoint x="506" y="110"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNShape id="DMNShape_0njri9i" dmnElementRef="Decision_1gg4g1k">
+                <dc:Bounds height="80" width="180" x="10" y="120"/>
+            </dmndi:DMNShape>
+        </dmndi:DMNDiagram>
+    </dmndi:DMNDI>
+</definitions>

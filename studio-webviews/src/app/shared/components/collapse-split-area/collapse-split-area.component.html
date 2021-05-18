@@ -1,0 +1,27 @@
+<div class="collapse-split">
+
+    <div class="expand-buttons vertical-collapse-area" *ngIf="collapseDirection === 'vertical'">
+        <div class="collapse-area-title">
+            <span placement="top" tooltipClass="ai-custom-tooltip" container="body"
+                [ngbTooltip]="title">{{title}}</span>
+        </div>
+        <ng-container *ngTemplateOutlet="splitAreaButtons"></ng-container>
+    </div>
+    <div class="collapse-body">
+        <div [hidden]="collapsed">
+            <ng-content></ng-content>
+        </div>
+    </div>
+    <div *ngIf="collapseDirection === 'horizontal'" class="expand-buttons">
+        <ng-container *ngTemplateOutlet="splitAreaButtons"></ng-container>
+    </div>
+</div>
+
+<ng-template #splitAreaButtons>
+    <button class="button-flat-primary ai-extended-icon"
+        [ngClass]="collapseDirection === 'vertical' ? 'double-down' : 'double-right'" *ngIf="!collapsed"
+        title="Collapse sidebar" (click)="onCollapse()"></button>
+    <button class="button-flat-primary ai-extended-icon"
+        [ngClass]="collapseDirection === 'vertical' ? 'double-up' : 'double-left'" *ngIf="collapsed"
+        title="Expand sidebar" (click)="onExpand()"></button>
+</ng-template>

@@ -1,0 +1,3 @@
+
+export { DecisionTableViewer } from './DecisionTableViewer';
+

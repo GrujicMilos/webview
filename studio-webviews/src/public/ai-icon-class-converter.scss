@@ -1,0 +1,488 @@
+$fa-font-path: '/assets/fonts/webfonts';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+
+.ai-extended-icon {
+  &.large {
+    @extend .fa-lg;
+    font-size: 19px;
+  }
+
+  &.small {
+    @extend .fa-sm;
+    font-size: 12px;
+  }
+
+  &.medium {
+    font-size: 16px;
+  }
+
+  &.up {
+    @extend .fas;
+    @extend .fa-angle-up;
+  }
+
+  &.down {
+    @extend .fas;
+    @extend .fa-angle-down;
+  }
+
+  &.right {
+    @extend .fas;
+    @extend .fa-angle-right;
+  }
+
+  &.left {
+    @extend .fas;
+    @extend .fa-angle-left;
+  }
+
+  &.double-up {
+    @extend .fas;
+    @extend .fa-angle-double-up;
+  }
+
+  &.double-down {
+    @extend .fas;
+    @extend .fa-angle-double-down;
+  }
+
+  &.exclamation-circle {
+    @extend .fas;
+    @extend .fa-exclamation-circle;
+  }
+
+  &.info-circle {
+    @extend .fas;
+    @extend .fa-info-circle;
+  }
+
+  &.exclamation-triangle {
+    @extend .fas;
+    @extend .fa-exclamation-triangle;
+  }
+
+  &.question-circle {
+    @extend .fas;
+    @extend .fa-question-circle;
+  }
+
+  &.bell {
+    @extend .fas;
+    @extend .fa-bell;
+  }
+
+  &.bell-slash {
+    @extend .far;
+    @extend .fa-bell-slash;
+  }
+
+  &.lock {
+    @extend .fas;
+    @extend .fa-lock;
+  }
+
+  &.down-caret {
+    @extend .fas;
+    @extend .fa-caret-down;
+  }
+
+  &.clipboard-check {
+    @extend .fas;
+    @extend .fa-clipboard-check;
+  }
+
+  &.right-caret {
+    @extend .fas;
+    @extend .fa-caret-right;
+  }
+
+  &.list {
+    @extend .fas;
+    @extend .fa-list;
+  }
+
+  &.exclamation-circle {
+    @extend .fas;
+    @extend .fa-exclamation-circle;
+  }
+
+  &.plus {
+    @extend .fa;
+    @extend .fa-plus;
+  }
+
+  &.check {
+    @extend .fas;
+    @extend .fa-check;
+  }
+
+  &.search {
+    @extend .fa;
+    @extend .fa-search;
+  }
+
+  &.link {
+    @extend .fa;
+    @extend .fa-link;
+  }
+
+  &.search-plus {
+    @extend .fa;
+    @extend .fa-search-plus;
+  }
+
+  &.search-minus {
+    @extend .fas;
+    @extend .fa-search-minus;
+  }
+
+  &.eye {
+    @extend .fas;
+    @extend .fa-eye;
+  }
+
+  &.pen {
+    @extend .fas;
+    @extend .fa-pen;
+  }
+
+  &.bars {
+    @extend .fas;
+    @extend .fa-bars;
+  }
+
+  &.sign-out {
+    @extend .fas;
+    @extend .fa-sign-out-alt;
+  }
+
+
+  &.home {
+    @extend .fas;
+    @extend .fa-home;
+  }
+
+  &.camera {
+    @extend .fas;
+    @extend .fa-camera-retro;
+  }
+
+  &.history {
+    @extend .fas;
+    @extend .fa-history;
+  }
+
+  &.times {
+    @extend .fas;
+    @extend .fa-times;
+  }
+
+  &.percentage {
+    @extend .fas;
+    @extend .fa-percentage;
+  }
+
+  &.dollar {
+    @extend .fas;
+    @extend .fa-dollar-sign;
+  }
+
+  &.user-plus {
+    @extend .fas;
+    @extend .fa-user-plus;
+  }
+
+  &.user {
+    @extend .fas;
+    @extend .fa-user;
+  }
+
+  &.users {
+    @extend .fas;
+    @extend .fa-users;
+  }
+
+  &.location {
+    @extend .fas;
+    @extend .fa-map-marker-alt;
+  }
+
+  &.copy {
+    @extend .far;
+    @extend .fa-copy;
+  }
+
+  &.trash {
+    @extend .fas;
+    @extend .fa-trash-alt;
+  }
+
+  &.double-left {
+    @extend .fas;
+    @extend .fa-angle-double-left;
+  }
+
+  &.double-right {
+    @extend .fas;
+    @extend .fa-angle-double-right;
+  }
+
+  &.download {
+    @extend .fas;
+    @extend .fa-download;
+  }
+
+  &.upload {
+    @extend .fas;
+    @extend .fa-upload;
+  }
+
+  &.settings {
+    @extend .fas;
+    @extend .fa-cog;
+  }
+
+  &.minus {
+    @extend .fas;
+    @extend .fa-minus;
+  }
+
+  &.print {
+    @extend .fas;
+    @extend .fa-print;
+  }
+
+  &.date {
+    @extend .fas;
+    @extend .fa-calendar-day;
+  }
+
+  &.sort-amount-up {
+    @extend .fa;
+    @extend .fa-sort-amount-up;
+  }
+
+  &.sort-amount-down {
+    @extend .fa;
+    @extend .fa-sort-amount-down;
+  }
+
+  &.reload {
+    @extend .fas;
+    @extend .fa-sync-alt;
+  }
+
+  &.arrow-left {
+    @extend .fas;
+    @extend .fa-arrow-left;
+  }
+
+  &.clock {
+    @extend .fas;
+    @extend .fa-clock;
+  }
+
+  &.edit {
+    @extend .fas;
+    @extend .fa-edit;
+  }
+
+
+  &.save {
+    @extend .fas;
+    @extend .fa-save;
+  }
+
+  &.calculator {
+    @extend .fas;
+    @extend .fa-calculator;
+  }
+
+  &.ban {
+    @extend .fas;
+    @extend .fa-ban;
+  }
+
+  &.car {
+    @extend .fas;
+    @extend .fa-car;
+  }
+
+  &.suitcase-rolling {
+    @extend .fas;
+    @extend .fa-suitcase-rolling;
+  }
+
+  &.file-alt {
+    @extend .fas;
+    @extend .fa-file-alt;
+  }
+
+  &.file-invoice {
+    @extend .fas;
+    @extend .fa-file-invoice;
+  }
+
+  &.file-export {
+    @extend .fas;
+    @extend .fa-file-export;
+  }
+
+  &.medkit {
+    @extend .fas;
+    @extend .fa-medkit;
+  }
+
+  &.ambulance {
+    @extend .fas;
+    @extend .fa-ambulance;
+  }
+
+  &.briefcase-medical {
+    @extend .fas;
+    @extend .fa-briefcase-medical;
+  }
+
+  &.money-bill {
+    @extend .fas;
+    @extend .fa-money-bill;
+  }
+
+  &.money-check {
+    @extend .fas;
+    @extend .fa-money-check;
+  }
+
+  &.bookmark {
+    @extend .fas;
+    @extend .fa-bookmark;
+  }
+
+  &.building {
+    @extend .fas;
+    @extend .fa-building;
+  }
+
+  &.calendar-alt {
+    @extend .fas;
+    @extend .fa-calendar-alt;
+  }
+
+  &.car-crash {
+    @extend .fas;
+    @extend .fa-car-crash;
+  }
+
+  &.shuttle-van {
+    @extend .fas;
+    @extend .fa-shuttle-van;
+  }
+
+  &.circle {
+    @extend .fas;
+    @extend .fa-circle;
+  }
+
+  &.clone {
+    @extend .fas;
+    @extend .fa-clone;
+  }
+
+  &.flag {
+    @extend .fas;
+    @extend .fa-flag;
+  }
+
+  &.paperclip {
+    @extend .fas;
+    @extend .fa-paperclip;
+  }
+
+  &.receipt {
+    @extend .fas;
+    @extend .fa-receipt;
+  }
+
+  &.umbrella-beach {
+    @extend .fas;
+    @extend .fa-umbrella-beach;
+  }
+
+  &.uppercase {
+    text-transform: var(--common-text-transform-uppercase);
+  }
+
+  &.yellow {
+    color: rgba(var(--warning_500), 1);
+  }
+
+  &.white {
+    color: rgba(var(--secondary_0), 1);
+  }
+
+  &.black {
+    color: rgba(var(--secondary_1000), 1);
+  }
+
+  &.red {
+    color: rgba(var(--danger_500), 1);
+  }
+
+  &.green {
+    color: rgba(var(--success_500), 1);
+  }
+
+  &.normal {
+    font-size: 16px;
+  }
+
+  &.blue {
+    color: rgba(var(--primary_500), 1);
+  }
+
+  &.gray {
+    color: rgba(var(--secondary_600), 1);
+  }
+}
+
+// When autocomplete on dropdown input is true -> arrow icon becomes ellipsis
+.ai-clear-ng-arrow .ng-select.studio-icon .ng-arrow-wrapper {
+  .ng-arrow {
+    @extend .fas;
+    @extend .fa-ellipsis-h;
+  }
+}
+
+.ng-select.studio-icon .ng-arrow-wrapper {
+  .ng-arrow {
+    @extend .fas;
+    @extend .fa-angle-down;
+  }
+}
+
+.ng-select.ng-select-opened.studio-icon .ng-arrow-wrapper {
+  .ng-arrow {
+    @extend .fas;
+    @extend .fa-angle-up;
+  }
+}
+
+//Angular2 tree check icon
+.ai-tree-view tree-node-checkbox input.tree-node-checkbox[type=checkbox] {
+  @extend .fas;
+  @extend .fa-check;
+}
+
+//Angular tree arrow right icon
+.toggle-children-wrapper.toggle-children-wrapper-collapsed {
+  @extend .fas;
+  @extend .fa-angle-right;
+}
+
+//Angular tree arrow down icon
+.toggle-children-wrapper.toggle-children-wrapper-expanded {
+  @extend .fas;
+  @extend .fa-angle-down;
+}

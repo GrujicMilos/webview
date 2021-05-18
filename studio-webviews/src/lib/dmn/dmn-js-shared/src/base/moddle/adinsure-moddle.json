@@ -1,0 +1,104 @@
+{
+  "name": "AdInsure",
+  "uri": "http://adacta-fintech.com/schema/1.0/dmn",
+  "prefix": "adi",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "associations": [],
+  "types": [
+    {
+      "name": "BusinessKnowledgeModel",
+      "extends": [
+        "dmn:BusinessKnowledgeModel"
+      ],
+      "properties": [
+        {
+          "name": "lib",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "object",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "alias",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "RuleAnnotationClause",
+      "extends": [
+        "dmn:RuleAnnotationClause"
+      ],
+      "properties": [
+        {
+          "name": "hidden",
+          "isAttr": true,
+          "type": "Boolean"
+        },
+        {
+          "name": "readOnly",
+          "isAttr": true,
+          "type": "Boolean"
+        },
+        {
+          "name": "defaultValue",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "InputClause",
+      "extends": [
+        "dmn:InputClause"
+      ],
+      "properties": [
+        {
+          "name": "readOnly",
+          "isAttr": true,
+          "type": "Boolean"
+        },
+        {
+          "name": "hidden",
+          "isAttr": true,
+          "type": "Boolean"
+        },
+        {
+          "name": "defaultValue",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "OutputClause",
+      "extends": [
+        "dmn:OutputClause"
+      ],
+      "properties": [
+        {
+          "name": "defaultValue",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "readOnly",
+          "isAttr": true,
+          "type": "Boolean"
+        },
+        {
+          "name": "hidden",
+          "isAttr": true,
+          "type": "Boolean"
+        }
+      ]
+    }
+  ],
+  "emumerations": []
+}

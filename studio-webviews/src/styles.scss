@@ -1,0 +1,697 @@
+@import "./public/diagram-js.scss";
+@import "./public/dark-default-theme.scss"; //dark + (default theme)
+@import "./public/dialog.scss";
+@import "./public/ai-grid-class-converter.scss";
+@import "./public/ai-icon-class-converter.scss";
+@import "./public/common.scss";
+@import "./public/ag-grid-style.scss";
+
+@import "../src/lib/dmn/dmn-js-drd/assets/css/dmn-js-drd.css";
+@import "../src/lib/dmn/assets/dmn-font/css/dmn.css";
+
+/* You can add global styles to this file, and also import other style files */
+// @import '~angular-tree-component/dist/angular-tree-component.css';
+
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+
+@import "~bootstrap/scss/bootstrap.scss";
+@import "bootstrap-override.scss";
+
+@import "~jsoneditor/dist/jsoneditor.min.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+@import "~ag-grid-community/src/styles/ag-grid.scss";
+@import "~ag-grid-community/src/styles/ag-theme-alpine/sass/_ag-theme-alpine-mixin.scss";
+
+//$codicon-font-path: './codicon.ttf';
+@import "../src/assets/fonts/codicon/codicon.scss";
+@import "../src/assets/fonts/codicon/codicon-modifiers.css";
+
+
+.ag-theme-alpine {
+  @include ag-theme-alpine();
+}
+
+.ai-grid-1 {
+  .ai-width-1 {
+    @extend .col-md-12;
+  }
+
+  .ai-width-2 {
+    @extend .col-md-12;
+  }
+
+  .ai-width-3 {
+    @extend .col-md-12;
+  }
+
+  .ai-width-4 {
+    @extend .col-md-12;
+  }
+}
+
+.ai-grid-2 {
+  .ai-width-1 {
+    @extend .col-md-6;
+  }
+
+  .ai-width-2 {
+    @extend .col-md-12;
+  }
+
+  .ai-width-3 {
+    @extend .col-md-12;
+  }
+
+  .ai-width-4 {
+    @extend .col-md-12;
+  }
+}
+
+.ai-grid-4 {
+  .ai-width-1 {
+    @extend .col-md-3;
+  }
+
+  .ai-width-2 {
+    @extend .col-md-6;
+  }
+
+  .ai-width-3 {
+    @extend .col-md-9;
+  }
+
+  .ai-width-4 {
+    @extend .col-md-12;
+  }
+}
+
+.tree-node-content {
+  color: white;
+}
+
+.tree-node-active .tree-node-content,
+.tree-node-focused .tree-node-content {
+  color: black;
+}
+
+:root {
+  --editor-text-overflow: ellipsis;
+  --editor-overflow: hidden;
+  --editor-text-overflow-visible: visible;
+  --editor-overflow-auto: auto;
+  --editor-text-decoration-underline: underline;
+
+  --editor-white-space: nowrap;
+  --editor-flex-wrap: wrap;
+  --editor-display-block: block;
+  --editor-display-none: none;
+  --editor-display-flex: flex;
+  --editor-display-inline-block: inline-block;
+  --editor-justify-content-center: center;
+  --editor-unset: unset;
+  --editor-break-word: break-word;
+
+  --editor-height-width: 100%;
+  --editor-height-width-fit-content: fit-content;
+  --editor-font-weight: 600;
+  --editor-active-weight: 700;
+  --editor-font-weight-400: 400;
+  --editor-font-italic: italic;
+  --editor-text-align: center;
+  --editor-float-right: right;
+  --editor-float-left: left;
+  --editor-left-top-bottom-right: 0;
+
+  --editor-input-border: 1px solid var(--vscode-settings-textInputBorder);
+  --editor-border: 1px solid var(--vscode-input-background);
+  --editor-border-none: none;
+  --editor-box-sizing-border-box: border-box;
+  --editor-border-radius-0: 0;
+  --editor-border-vscode-light-border-color: #cccccc;
+  --editor-border-vscode-dark-border-color: #3c3c3c;
+
+  --editor-vscode-light-color: rgba(97, 97, 97, 0.9);
+  --editor-vscode-dark-color: rgb(231, 231, 231);
+  --editor-margin: 0px;
+
+  --editor-html-font-size: 13px;
+  --editor-custom-properties-font-size: 18px;
+  --editor-h1-font-size: 24px;
+  --editor-h1-small-font-size: 22px;
+  --editor-h2-font-size: 20px;
+  --editor-h3-font-size: 18px;
+  --editor-h4-font-size: 16px;
+  --editor-h5-font-size: 14px;
+  --editor-h6-font-size: 13px;
+
+  --editor-cursor-pointer: pointer;
+  --editor-cursor-default: default;
+  --editor-cursor-auto: auto;
+
+  --editor-position-absolute: absolute;
+  --editor-position-relative: relative;
+  --editor-position-sticky: sticky;
+
+  --editor-overflow-overlay: overlay;
+
+  --editor-input-width-height-line-height: 19px;
+  --editor-input-margin-right: 9px;
+  --editor-input-float: left;
+  --editor-input-content: "";
+  --editor-input-content-after: "\2713";
+  --editor-input-vertical-align: middle;
+  --editor-input-font-size: 15px;
+  --editor-input-max-width: 500px;
+  --editor-input-padding: 4px;
+  --editor-input-button-height: 25px;
+
+  --editor-button-border: 1px solid;
+  --editor-button-disabled-cursor: not-allowed;
+
+  --editor-transform-rotate-0: rotate(0deg);
+  --editor-transform-rotate-360: rotate(360deg);
+
+  --editor-webkit-scrollbar-corner-background-color: transparent;
+  --editor-webkit-scrollbar-webkit-scrollbar-width-height: 8px;
+
+  --editor-table-layout: fixed;
+  --editor-ul-list-style: none;
+
+  --editor-container-display: grid;
+  --editor-table-th-td-border-top: none;
+  --editor-width-auto: auto;
+
+  --editor-options-padding: 5px;
+  --editor-options-border-radius: 6px;
+  --editor-poperty-panel-padding: 5px;
+
+  --editor-button-padding: 2px 14px;
+  --editor-button-height: 22px;
+  --editor-button-line-height: 0;
+  --editor-button-focus-outline: none;
+  --editor-button-margin-left-right: 10px;
+
+  --editor-error-message-font-style: italic;
+  --editor-error-message-font-size: 12px;
+  --editor-error-message-height: 20px;
+  --editor-table-new-item-margin-bottom: 10px;
+  --editor-table-new-item-error-bottom: -18px;
+
+  --editor-table-th-td-padding: 4px;
+  --editor-setting-item-contents-label-margin-bottom-top: 5px;
+  --editor-table-hover-td-last-child-width: 90%;
+  --editor-table-edit-delete-bottom: 4px;
+  --editor-table-edit-right: 5px;
+  --editor-table-delete-right: 30px;
+  --editor-setting-item-contents-margin-top: 12px;
+
+  --main-index-padding-0: 0px;
+
+  --editor-delete-property-margin-right: 7px;
+  --editor-delete-property-margin-top: 8px;
+
+  --editor-bs-tooltip-font-size: 11px;
+
+  --editor-black-color: black;
+  --disabled-button-opacity: 0.8;
+  --opacity: 1;
+  --disabled-pointer-events: none;
+
+  --toolbox-item-padding: 3px;
+  --toolbox-item-font-size: 0.65rem;
+  --toolbox-item-font-weight: 500;
+  --toolbox-item-i-margin-left: 5px;
+  --toolbox-item-i-font-size: 0.8rem;
+  --controls-nav-tabs-position: sticky;
+  --controls-nav-tabs-position-top: 0;
+  --controls-nav-tabs-z-index: 99;
+  --controls-nav-tabs-padding-top: 20px;
+
+  --vscode-dark-color: #c5c5c5;
+  --vscode-light-color: #424242;
+  --vscode-root-element-padding: 12px 14px 18px;
+  --vscode-root-element-margin: 0px -14px 0px;
+  --vscode-root-element-focus-margin-top-bottom: -1px;
+  --vscode-root-element-focus-border-style-top-bottom: 1px solid;
+
+  --vscode-root-element-padding-top: 12px;
+  --vscode-root-element-padding-bottom: 18px;
+
+  --tree-node-content-toggle-children-icon-font-family: "Font Awesome 5 Free";
+  --tree-node-content-toggle-children-icon-font-weight: 900;
+  --tree-node-content-toggle-children-icon-font-size: 15px;
+  --tree-node-content-toggle-children-icon-color: var(--color-button-background);
+
+  --tree-node-content-toggle-children-icon-expanded-content: "\f0d7";
+  --tree-node-content-toggle-children-icon-collapsed-content: "\f0da";
+
+  --tree-node-content-toggle-children-transform: rotate(0deg);
+  --tree-node-content-toggle-children-background-image: none;
+}
+
+input[type="checkbox"]:after {
+  content: var(--editor-input-content);
+  vertical-align: var(--editor-input-vertical-align);
+  text-align: var(--editor-text-align);
+  line-height: var(--editor-input-width-height-line-height);
+  position: var(--editor-position-absolute);
+  cursor: var(--editor-cursor-pointer);
+  height: var(--editor-input-width-height-line-height);
+  width: vaR(--editor-input-width-height-line-height);
+  left: var(--editor-left-top-bottom-right);
+  top: var(--editor-left-top-bottom-right);
+  border: var(--editor-border);
+
+  .vscode-dark & {
+    background-color: var(--vscode-input-background);
+    border-color: var(--editor-border-vscode-dark-border-color);
+  }
+
+  .vscode-light & {
+    background-color: var(--vscode-editor-background);
+    border-color: var(--editor-border-vscode-light-border-color);
+  }
+}
+
+input[type="checkbox"]:checked:after {
+  content: var(--editor-input-content-after);
+
+  .vscode-light & {
+    background-color: var(--vscode-editor-background);
+    color: var(--editor-vscode-light-color);
+  }
+
+  .vscode-dark & {
+    color: var(--editor-vscode-dark-color);
+    background-color: var(--vscode-input-background);
+  }
+}
+
+input[type="checkbox"] {
+  width: var(--editor-input-width-height-line-height);
+  height: vaR(--editor-input-width-height-line-height);
+  margin-right: var(--editor-input-margin-right);
+  display: var(--editor-display-block);
+  float: var(--editor-input-float);
+  position: var(--editor-position-relative);
+  cursor: var(--editor-cursor-pointer);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input:not([type]) {
+  background-color: var(--vscode-input-background);
+  color: var(--color-button-foreground);
+  max-width: var(--editor-input-max-width);
+  padding: var(--editor-input-padding);
+  width: var(--editor-height-width);
+
+  .vscode-light & {
+    border: var(--editor-input-border);
+    color: var(--editor-vscode-light-color);
+  }
+
+  .vscode-dark & {
+    border: var(--editor-border-none);
+    color: var(--editor-vscode-dark-color);
+  }
+
+  height: var(--editor-input-button-height);
+}
+
+input:focus {
+  outline-color: var(--vscode-focusBorder);
+}
+
+select {
+  cursor: var(--editor-cursor-pointer);
+
+  &:focus {
+    outline-color: var(--vscode-focusBorder);
+  }
+
+  background-color: var(--vscode-input-background);
+
+  .vscode-light & {
+    border: var(--editor-input-border) !important;
+    color: var(--editor-vscode-light-color);
+  }
+
+  .vscode-dark & {
+    border: var(--editor-border-none);
+    color: var(--editor-vscode-dark-color);
+  }
+}
+
+.setting-item {
+  position: var(--editor-position-relative);
+}
+
+.group-component {
+  padding: var(--editor-poperty-panel-padding);
+  border: var(--editor-border);
+  border-color: var(--editor-border-vscode-dark-border-color);
+  width: var(--editor-height-width);
+
+  .group-child {
+    display: var(--editor-container-display);
+  }
+
+  .vscode-light & {
+    border-color: var(--editor-border-vscode-light-border-color);
+  }
+
+  .vscode-dark & {
+    border-color: var(--editor-border-vscode-dark-border-color);
+  }
+}
+
+label.required:after,
+div.required:after,
+span.required:after {
+  content: " *";
+  color: var(--editor-vscode-dark-color);
+
+  .vscode-light & {
+    color: var(--editor-vscode-light-color);
+  }
+
+  .vscode-dark & {
+    color: var(--editor-vscode-dark-color);
+  }
+}
+
+.button {
+  cursor: var(--editor-cursor-pointer);
+  white-space: var(--editor-white-space);
+  padding: var(--editor-button-padding);
+  height: var(--editor-button-height);
+  line-height: var(--editor-button-line-height);
+
+  &:focus {
+    outline: var(--editor-button-focus-outline);
+  }
+}
+
+.as-split-gutter-icon {
+  background-color: var(--color-background--lighten-15);
+
+  .vscode-light & {
+    background-color: var(--color-background--darken-15);
+  }
+}
+
+.button-flat-primary {
+  background-color: var(--color-button-background);
+  border: var(--editor-button-border);
+  border-color: var(--color-button-background);
+  color: var(--color-button-foreground) !important;
+  font-weight: var(--editor-font-weight);
+
+  &:hover {
+    background-color: var(--vscode-button-hoverBackground);
+  }
+
+  &.confirm-button {
+    height: var(--editor-input-button-height) !important;
+    margin-left: var(--editor-button-margin-left-right);
+  }
+
+  &.flow-confirm-button {
+    margin-top: 0px;
+  }
+}
+
+.new-item {
+  margin-bottom: var(--editor-table-new-item-margin-bottom);
+  position: var(--editor-position-relative);
+  display: var(--editor-display-flex);
+
+  .error-message {
+    position: var(--editor-position-absolute);
+    left: var(--editor-left-top-bottom-right);
+    bottom: var(--editor-table-new-item-error-bottom);
+    color: var(--vscode-errorForeground);
+    font-style: var(--editor-error-message-font-style);
+    font-size: var(--editor-error-message-font-size);
+    height: var(--editor-error-message-height);
+  }
+}
+
+.no-data-notice {
+  color: var(--editor-vscode-dark-color);
+  font-weight: var(--editor-font-weight-400);
+  font-style: var(--editor-font-italic);
+
+  .vscode-light & {
+    color: var(--editor-vscode-light-color);
+  }
+
+  .vscode-dark & {
+    color: var(--editor-vscode-dark-color);
+  }
+}
+
+.setting-item-contents {
+  &.configuration {
+    margin-top: var(--editor-setting-item-contents-margin-top);
+  }
+
+  .setting-item-label {
+    margin-bottom: var(--editor-setting-item-contents-label-margin-bottom-top);
+    font-weight: var(--editor-font-weight);
+
+    &.document-description {
+      display: var(--editor-display-block);
+    }
+  }
+
+  &.table {
+    position: var(--editor-position-relative);
+
+    .ai-add-button {
+      margin-top: var(--editor-setting-item-contents-label-margin-bottom-top);
+    }
+
+    .table-items {
+      table-layout: var(--editor-table-layout);
+
+      .action-buttons {
+        display: var(--editor-display-none);
+      }
+    }
+
+    tr:hover {
+      .action-buttons {
+        display: var(--editor-display-block);
+      }
+    }
+
+    tr th span {
+      font-weight: var(--editor-font-weight);
+    }
+  }
+}
+
+.table th,
+td {
+  border-top: var(--editor-table-th-td-border-top) !important;
+  padding: var(--editor-table-th-td-padding) !important;
+  color: var(--color-button-foreground);
+
+  .vscode-light & {
+    color: var(--editor-vscode-light-color);
+  }
+
+  .vscode-dark & {
+    color: var(--editor-vscode-dark-color);
+  }
+}
+
+.section-table,
+.array-component,
+.expected-value-array-component,
+.validation-rule-table {
+  width: var(--editor-height-width);
+
+  table {
+    width: var(--editor-height-width);
+
+    tr {
+      &:hover td {
+        cursor: var(--editor-cursor-auto);
+        background-color: var(--vscode-list-hoverBackground);
+
+        &:last-child .td-value {
+          width: var(--editor-table-hover-td-last-child-width);
+        }
+      }
+
+      td {
+        position: var(--editor-position-relative);
+
+        .td-value {
+          text-overflow: var(--editor-text-overflow);
+          display: var(--editor-display-block);
+          overflow: var(--editor-overflow);
+          white-space: var(--editor-white-space);
+        }
+      }
+    }
+
+    span.edit {
+      position: var(--editor-position-absolute);
+      bottom: var(--editor-table-edit-delete-bottom);
+      right: var(--editor-table-edit-right);
+      cursor: var(--editor-cursor-pointer);
+    }
+
+    span.delete {
+      position: var(--editor-position-absolute);
+      bottom: var(--editor-table-edit-delete-bottom);
+      right: var(--editor-table-delete-right);
+      cursor: var(--editor-cursor-pointer);
+    }
+  }
+
+  .att-name input {
+    width: var(--editor-input-max-width);
+  }
+}
+
+h2 {
+  font-size: var(--editor-h2-font-size);
+  font-weight: var(--editor-font-weight);
+  white-space: var(--editor-white-space);
+}
+
+h3 {
+  font-size: var(--editor-h3-font-size);
+  font-weight: var(--editor-font-weight);
+  white-space: var(--editor-white-space);
+}
+
+.main-index {
+  padding: var(--main-index-padding-0);
+}
+
+array-component {
+  display: var(--editor-display-block);
+  width: var(--editor-height-width);
+}
+
+.delete-property {
+  position: var(--editor-position-absolute);
+  right: var(--editor-left-top-bottom-right);
+  margin-right: var(--editor-delete-property-margin-right);
+  top: var(--editor-left-top-bottom-right);
+  margin-top: var(--editor-delete-property-margin-top);
+  cursor: var(--editor-cursor-pointer);
+}
+
+.tooltip.bs-tooltip-top {
+  font-size: var(--editor-bs-tooltip-font-size);
+}
+
+.tooltip.bs-tooltip-right {
+  font-size: var(--editor-bs-tooltip-font-size);
+}
+
+.required-title {
+  font-style: var(--editor-font-italic);
+}
+
+.ai-custom-tooltip {
+  .tooltip-inner {
+    background-color: var(--color-button-background);
+  }
+
+  &.bs-tooltip-top .arrow::before {
+    border-top-color: var(--color-button-background) !important;
+  }
+}
+
+.controls,
+.knowledge-model,
+.toolbox-inputs {
+  ul.nav-tabs {
+    position: var(--controls-nav-tabs-position);
+    top: var(--controls-nav-tabs-position-top);
+    z-index: var(--controls-nav-tabs-z-index);
+    padding-top: var(--controls-nav-tabs-padding-top);
+    background-color: var(--color-background--darken-075);
+
+    a.nav-link {
+      border: 1px solid var(--vscode-tab-activeBorder);
+
+      .vscode-light & {
+        color: var(--editor-vscode-light-color);
+      }
+
+      .vscode-dark & {
+        color: var(--editor-vscode-dark-color);
+      }
+
+      background: var(--vscode-tab-inactiveBackground);
+
+      &:hover,
+      &:focus {
+        background-color: var(--vscode-tab-activeBackground);
+      }
+
+      &.active,
+      &.active:hover,
+      &.active:focus {
+        border-color: var(--vscode-tab-activeBorder);
+        background-color: var(--vscode-tab-activeBackground);
+      }
+    }
+  }
+}
+
+.dmn-adi-decision-editor-container {
+  height: var(--editor-height-width);
+}
+.tooltip.show {
+  opacity: var(--opacity) !important;
+}
+.disabled {
+  pointer-events: var(--disabled-pointer-events);
+  cursor: var(--editor-button-disabled-cursor);
+}
+
+.tree-view {
+  ngx-tree {
+    .toggle-children {
+      background-image: var(--tree-node-content-toggle-children-background-image) !important;
+    }
+
+    .toggle-children-collapsed .toggle-children,
+    .toggle-children-expanded .toggle-children {
+      transform: var(--tree-node-content-toggle-children-transform) !important;
+
+      &::before {
+        font-family: var(--tree-node-content-toggle-children-icon-font-family);
+        font-weight: var(--tree-node-content-toggle-children-icon-font-weight);
+        font-size: var(--tree-node-content-toggle-children-icon-font-size);
+      }
+    }
+
+    .toggle-children-expanded .toggle-children {
+      &::before {
+        content: var(--tree-node-content-toggle-children-icon-expanded-content);
+      }
+    }
+
+    .toggle-children-collapsed .toggle-children {
+      &::before {
+        content: var(--tree-node-content-toggle-children-icon-collapsed-content);
+      }
+    }
+  }
+}

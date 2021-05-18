@@ -1,0 +1,120 @@
+:root {
+  --expand-buttons-border-top: 1px solid #cccccc;
+  --expand-buttons-position: relative;
+  --expand-buttons-height: 31px;
+  --expand-buttons-ai-extended-icon-position: absolute;
+  --expand-buttons-ai-extended-icon-right: 1px;
+  --expand-buttons-ai-extended-icon-height: 25px;
+  --expand-buttons-ai-extended-icon-width: 25px;
+  --expand-buttons-ai-extended-icon-padding: 3px;
+  --expand-buttons-ai-extended-icon-margin: 3px;
+  --expand-buttons-ai-extended-icon-light-border-top: 1px solid #3c3c3c;
+
+  --expand-buttons-flat-primary-background-color: transparent;
+  --expand-buttons-flat-primary-border-color: #e7e7e7;
+  --expand-buttons-flat-primary-color: #e7e7e7 !important;
+  --expand-buttons-flat-primary-border-radius: 4px;
+  --expand-buttons-flat-primary-line-height: 16px;
+  --expand-buttons-flat-primary-light-color: #616161e6 !important;
+  --expand-buttons-flat-primary-light-border-color: #616161e6;
+  --collapse-body-height: calc(100vh - 65px);
+  --collapse-split-height: 100%;
+  --collapse-split-overflow: hidden;
+  --collapse-split-body-overflow: auto;
+
+  --property-grid-padding-top: 0;
+  --property-grid-height: 100%;
+
+  --expand-button-position-right: 10px;
+  --expand-button-position-bottom: 5px;
+
+  --collapse-area-title-left: 6px;
+  --collapse-area-title-font-size: small;
+  --collapse-area-title-width: calc(100% - 40px);
+
+  --vertical-collapse-area-overflow-x: hidden;
+  --vertical-collapse-area-overflow-y: auto;
+  --vertical-collapse-area-height: calc(100vh - 30px);
+  --vertical-collapse-area-width: 100%;
+  --vertical-collapse-area-bottom: 0;
+  --vertical-collapse-area-background-color: black;
+  --vertical-collapse-area-border-bottom: 1px solid #cccccc;
+
+  --button-flat-primary-top: 0;
+}
+.collapse-split {
+  height: var(--collapse-split-height);
+  overflow: var(--collapse-split-overflow);
+  .expand-buttons {
+    background-color: var(--color-background);
+    border-top: var(--expand-buttons-border-top);
+    position: var(--expand-buttons-position);
+    height: var(--expand-buttons-height);
+    .ai-extended-icon {
+      position: var(--expand-buttons-ai-extended-icon-position);
+      right: var(--expand-buttons-ai-extended-icon-right);
+      height: var(--expand-buttons-ai-extended-icon-height);
+      width: var(--expand-buttons-ai-extended-icon-width);
+      padding: var(--expand-buttons-ai-extended-icon-padding);
+      margin: var(--expand-buttons-ai-extended-icon-margin);
+    }
+    .vscode-light & {
+      border-top: var(--expand-buttons-ai-extended-icon-light-border-top);
+    }
+
+    .button-flat-primary {
+      background-color: var(--expand-buttons-flat-primary-background-color);
+      border: var(--editor-button-border);
+      border-color: var(--expand-buttons-flat-primary-border-color);
+      color: var(--expand-buttons-flat-primary-color) !important;
+      font-weight: var(--editor-font-weight);
+      border-radius: var(--expand-buttons-flat-primary-border-radius);
+      line-height: var(--expand-buttons-flat-primary-line-height);
+      .vscode-light & {
+        color: var(--expand-buttons-flat-primary-light-color) !important;
+        border-color: var(--expand-buttons-flat-primary-light-border-color);
+      }
+    }
+  }
+  .vertical-collapse-area {
+    position: var(--common-position-absolute);
+    bottom: var(--vertical-collapse-area-bottom);
+    background-color: var(--vertical-collapse-area-background-color);
+    overflow-x: var(--vertical-collapse-area-overflow-x);
+    overflow-y: var(--vertical-collapse-area-overflow-y);
+    height: var(--vertical-collapse-area-height);
+    width: var(--vertical-collapse-area-width);
+    border-bottom: var(--vertical-collapse-area-border-bottom);
+    .collapse-area-title {
+      max-width: var(--collapse-area-title-width);
+      text-overflow: var(--editor-text-overflow);
+      display: var(--editor-display-block);
+      overflow: var(--editor-overflow);
+      white-space: var(--editor-white-space);
+      .vscode-light & {
+        color: var(--editor-vscode-light-color);
+      }
+      .vscode-dark & {
+        color: var(--editor-vscode-dark-color);
+      }
+      span {
+        margin-left: var(--collapse-area-title-left);
+        .vscode-light & {
+          color: var(--editor-vscode-light-color);
+        }
+        .vscode-dark & {
+          color: var(--editor-vscode-dark-color);
+        }
+        font-size: var(--collapse-area-title-font-size);
+      }
+    }
+    .button-flat-primary {
+      top: var(--button-flat-primary-top);
+    }
+  }
+  .collapse-body {
+    height: var(--collapse-body-height);
+    background-color: var(--color-background);
+    overflow: var(--collapse-split-body-overflow);
+  }
+}

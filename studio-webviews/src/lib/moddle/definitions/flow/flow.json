@@ -1,0 +1,298 @@
+{
+  "name": "FLOW",
+  "uri": "http://www.omg.org/flow",
+  "associations": [],
+  "types": [
+    {
+      "name": "BaseElement",
+      "isAbstract": true,
+      "properties": [
+        {
+          "name": "id",
+          "isAttr": true,
+          "type": "String",
+          "isId": true
+        }
+      ]
+    },
+    {
+      "name": "RootElement",
+      "isAbstract": true,
+      "superClass": [
+        "BaseElement"
+      ]
+    },
+    {
+      "name": "Plane",
+      "isAbstract": true,
+      "superClass": [
+        "BaseElement"
+      ],
+      "properties": [
+        {
+          "name": "nodes",
+          "type": "Element",
+          "isMany": true
+        }
+      ]
+    },
+    {
+      "name": "State",
+      "superClass": [
+        "RootElement"
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "appliesVersion",
+          "type": "Boolean",
+          "isAttr": true
+        },
+        {
+          "name": "discardsVersion",
+          "type": "Boolean",
+          "isAttr": true
+        },
+        {
+          "name": "isTerminal",
+          "type": "Boolean",
+          "isAttr": true
+        },
+        {
+          "name": "operations",
+          "type": "String",
+          "isMany": true,
+          "isAttr": true
+        }
+      ]
+    },
+    {
+      "name": "Related",
+      "superClass": [
+        "RootElement"
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "Relationship",
+      "superClass": [
+        "BaseElement"
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "direction",
+          "type": "RelationshipDirection"
+        },
+        {
+          "name": "requiredAttachments",
+          "isAttr": true,
+          "type": "Element",
+          "properties": [
+            {
+              "name": "all",
+              "isAttr": true,
+              "type": "Element"
+            },
+            {
+              "name": "types",
+              "type": "String",
+              "isMany": true,
+              "isAttr": true
+            },
+            {
+              "name": "onlyGroups",
+              "type": "String",
+              "isMany": true,
+              "isAttr": true
+            }
+          ]
+        },
+        {
+          "name": "allowOnValidationErrors",
+          "isAttr": true,
+          "type": "Element",
+          "properties": [
+            {
+              "name": "all",
+              "isAttr": true,
+              "type": "Element"
+            },
+            {
+              "name": "codes",
+              "type": "String",
+              "isMany": true,
+              "isAttr": true
+            },
+            {
+              "exceptForCodes": "onlyGroups",
+              "type": "String",
+              "isMany": true,
+              "isAttr": true
+            }
+          ]
+        },
+        {
+          "name": "requiredConfirmedConstraints",
+          "isAttr": true,
+          "type": "Element",
+          "properties": [
+            {
+              "name": "all",
+              "isAttr": true,
+              "type": "Element"
+            },
+            {
+              "name": "types",
+              "type": "String",
+              "isMany": true,
+              "isAttr": true
+            },
+            {
+              "name": "authorizationTypes",
+              "type": "String",
+              "isMany": true,
+              "isAttr": true
+            }
+          ]
+        },
+        {
+          "name": "manualAssignment",
+          "isAttr": true,
+          "type": "Element",
+          "properties": [
+            {
+              "name": "required",
+              "isAttr": true,
+              "type": "Element"
+            },
+            {
+              "name": "useAllocationRule",
+              "isAttr": true,
+              "type": "Element"
+            }
+          ]
+        },
+        {
+          "name": "source",
+          "isMany": true,
+          "isReference": true,
+          "type": "Element"
+        },
+        {
+          "name": "target",
+          "isMany": true,
+          "isReference": true,
+          "type": "Element"
+        },
+        {
+          "name": "groupName",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "weight",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "description",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "title",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "automatic",
+          "isAttr": true,
+          "type": "Element"
+        },
+        {
+          "name": "actionToRunBefore",
+          "isAttr": true,
+          "type": "Element"
+        },
+        {
+          "name": "commentInput",
+          "isAttr": true,
+          "type": "Element"
+        },
+        {
+          "name": "exclusiveToAssignedUser",
+          "isAttr": true,
+          "type": "Element"
+        },
+        {
+          "name": "whenBlocked",
+          "isAttr": true,
+          "type": "Element"
+        }
+      ]
+    },
+    {
+      "name": "Definitions",
+      "superClass": [
+        "BaseElement"
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "rootElements",
+          "type": "RootElement",
+          "isMany": true
+        },
+        {
+          "name": "diagrams",
+          "isMany": true,
+          "type": "flowdi:FLOWDiagram"
+        },
+        {
+          "name": "relationships",
+          "type": "Relationship",
+          "isMany": true
+        }
+      ]
+    }
+  ],
+  "enumerations": [
+    {
+      "name": "RelationshipDirection",
+      "literalValues": [
+        {
+          "name": "None"
+        },
+        {
+          "name": "Forward"
+        },
+        {
+          "name": "Backward"
+        },
+        {
+          "name": "Both"
+        }
+      ]
+    }
+  ],
+  "prefix": "flow"
+}

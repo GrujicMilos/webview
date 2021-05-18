@@ -1,0 +1,330 @@
+:root {
+    --common-bold-font-weight: 700;
+    --common-sticky-container-padding-margin-left: var(--common-value-0);
+    --common-sticky-container-background-color: rgba(var(--background-color), 1);
+    --common-value-initial: initial;
+    --common-value-inherit: inherit;
+    --common-value-unset: unset;
+    --common-value-auto: auto;
+    --common-value-100: 100%;
+    --common-value-0: 0;
+    --common-value-1: 1;
+    --common-value-fit-content: fit-content;
+    --common-value-transparent: transparent;
+    --common-position-relative: relative;
+    --common-position-absolute: absolute;
+    --common-position-sticky: sticky;
+    --common-position-fixed: fixed;
+    --common-display-none: none;
+    --common-display-inline: inline;
+    --common-display-inline-block: inline-block;
+    --common-display-block: block;
+    --common-display-table: table;
+    --common-display-inline-table: inline-table;
+    --common-display-flex: flex;
+    --common-display-inline-flex: inline-flex;
+    --common-display-webkit-flex: -webkit-flex;
+    --common-flex-direction-row: row;
+    --common-flex-direction-column: column;
+    --common-flex-wrap: wrap;
+    --common-flex-align-items-start: flex-start;
+    --common-flex-align-items-end: flex-end;
+    --common-flex-align-items-center: center;
+    --common-flex-align-items-stretch: stretch;
+    --common-flex-justify-content: space-between;
+    --common-overflow-hidden: hidden;
+    --common-overflow-auto: auto;
+    --common-overflow-visible: visible;
+    --common-visibility-hidden: hidden;
+    --common-vertical-align-top: top;
+    --common-vertical-align-text-top: text-top;
+    --common-vertical-align-bottom: bottom;
+    --common-vertical-align-middle: middle;
+    --common-left-float: left;
+    --common-right-float: right;
+    --common-cursor-pointer: pointer;
+    --common-cursor-default: default;
+    --common-cursor-not-allowed: not-allowed;
+    --common-background-size-cover: cover;
+    --common-background-size-contain: contain;
+    --common-background-repeat: no-repeat;
+    --common-text-align-left: left;
+    --common-text-align-right: right;
+    --common-text-align-center: center;
+    --common-text-align-justify: justify;
+    --common-font-weight: bold;
+    --common-text-transform-lowercase: lowercase;
+    --common-text-transform-uppercase: uppercase;
+    --common-italic-font-style-italic: italic;
+    --common-text-decoration-none: none;
+    --common-text-decoration-underline: underline;
+    --common-text-overflow: ellipsis;
+    --common-word-break-word: break-word;
+    --common-word-break-word-all: break-all;
+    --common-word-break-word-keep-all: keep-all;
+    --common-white-space-nowrap: nowrap;
+    --common-white-space-normal: normal;
+    --common-word-wrap-normal: normal;
+    --common-border-style: solid;
+    --common-pointer-events: none;
+    --common-border-none: none;
+
+    /*Common tooltip*/
+    --common-tooltip-opacity: 1;
+    --common-tooltip-arrow-border-top-color: rgba(var(--warning_100), 1);
+    --common-tooltip-inner-background-color: rgba(var(--warning_100), 1);
+    --common-tooltip-inner-color: rgba(var(--text-color));
+    --common-tooltip-inner-min-width: 100px;
+    --common-tooltip-inner-width: 240px;
+    --common-tooltip-inner-box-shadow: 0 4px 8px 0 rgba(var(--text-color), 0.12),
+        0 2px 4px 0 rgba(var(--text-color), 0.08);
+    --common-tooltip-inner-font-size: 12px;
+    --common-tooltip-inner-text-align: left;
+    --common-tooltip-label-display: inline-block;
+    --common-tooltip-description-display: block;
+    --common-tooltip-description-word-wrap: break-word;
+    --common-tooltip-description-white-space: normal;
+    --common-tooltip-description-color: rgba(var(--text-color));
+    --common-tooltip-description-padding: var(--horizontal-padding) var(--margin-padding-x2-positive);
+    --common-tooltip-description-text-align: justify;
+    --common-tooltip-description-background-color: rgba(var(--warning_50), 1);
+    --common-tooltip-description-border-bottom: 5px solid rgba(var(--warning_100), 1);
+    --common-tooltip-inner-base-button-padding-left-right: var(--margin-padding-x2-positive);
+    --common-tooltip-arrow-base-button-left: 5px;
+
+    --common-section-vscode-container-parent-grid-12-ai-width-1-max-width: 8.333333%;
+    --common-section-vscode-container-parent-grid-12-ai-width-5-max-width: 41.666667%;
+    --common-section-vscode-container-parent-grid-12-ai-width-7-max-width: 58.333333%;
+    --common-section-vscode-container-parent-grid-12-ai-width-11-max-width: 91.666667%;
+
+    --common-section-vscode-container-parent-grid-max-width-16: 16.666667%;
+    --common-section-vscode-container-parent-grid-max-width-25: 25%;
+    --common-section-vscode-container-parent-grid-max-width-33: 33.333333%;
+    --common-section-vscode-container-parent-grid-max-width-50: 50%;
+    --common-section-vscode-container-parent-grid-max-width-66: 66.666667%;
+    --common-section-vscode-container-parent-grid-max-width-75: 75%;
+    --common-section-vscode-container-parent-grid-max-width-83: 83.333333%;
+    --common-section-vscode-container-parent-grid-max-width-100: 100%;
+    --common-section-vscode-container-border-radius: unset;
+
+    --vscode-highlighted-element-focus-away-border-color: transparent;
+}
+
+.ai-bold {
+    font-weight: var(--common-bold-font-weight);
+}
+
+.ai-italic {
+    font-style: var(--common-italic-font-style-italic);
+}
+
+.ai-left {
+    float: var(--common-left-float);
+}
+
+.ai-right {
+    float: var(--common-right-float);
+}
+
+.ai-underline {
+    text-decoration: var(--common-text-decoration-underline);
+}
+
+.ai-whitespace {
+    white-space: var(--common-white-space-pre);
+}
+
+.ai-sticky-container {
+    position: var(--ai-nav-tabs-position) !important;
+    top: var(--ai-nav-tabs-top);
+    z-index: var(--ai-header-content-layout-z-index);
+    padding-left: var(--common-sticky-container-padding-margin-left);
+    margin-left: var(--common-sticky-container-padding-margin-left);
+    background-color: var(--common-sticky-container-background-color);
+}
+
+.modal-content {
+    border-radius: var(--common-value-0) !important;
+    background-color: var(--common-value-transparent) !important;
+    border: var(--common-value-0) !important;
+}
+
+.tooltip {
+    &.ai-client-custom-tooltip.show {
+        opacity: var(--common-tooltip-opacity);
+    }
+
+    &.ai-client-custom-tooltip {
+        &.ai-base-button-tooltip {
+            .arrow {
+                left: var(--common-tooltip-arrow-base-button-left) !important;
+            }
+
+            .tooltip-inner {
+                padding-left: var(--common-tooltip-inner-base-button-padding-left-right);
+                padding-right: var(--common-tooltip-inner-base-button-padding-left-right);
+            }
+        }
+
+        &.bs-tooltip-bottom {
+            .arrow::before {
+                border-bottom-color: var(--common-tooltip-arrow-border-top-color);
+            }
+        }
+
+        .arrow::before {
+            border-top-color: var(--common-tooltip-arrow-border-top-color);
+        }
+
+        .tooltip-inner {
+            background-color: var(--common-tooltip-inner-background-color);
+            color: var(--common-tooltip-inner-color);
+            min-width: var(--common-tooltip-inner-min-width);
+            width: var(--common-tooltip-inner-width);
+            box-shadow: var(--common-tooltip-inner-box-shadow);
+            font-size: var(--common-tooltip-inner-font-size);
+            text-align: var(--common-tooltip-inner-text-align);
+
+            .ai-label-template {
+                display: var(--common-tooltip-label-display);
+            }
+
+            .ai-description-template {
+                display: var(--common-tooltip-description-display);
+                word-wrap: var(--common-tooltip-description-word-wrap);
+                white-space: var(--common-tooltip-description-white-space);
+                color: var(--common-tooltip-description-color);
+                padding: var(--common-tooltip-description-padding);
+                text-align: var(--common-tooltip-description-text-align);
+                background-color: var(--common-tooltip-description-background-color);
+                border-bottom: var(--common-tooltip-description-border-bottom);
+            }
+        }
+    }
+}
+
+@media (min-width: 576px) {
+    .ai-section-vscode-container {
+        .parent-grid-12 {
+            &.ai-width-1 {
+                max-width: var(--common-section-vscode-container-parent-grid-12-ai-width-1-max-width);
+            }
+            &.ai-width-5 {
+                max-width: var(--common-section-vscode-container-parent-grid-12-ai-width-5-max-width);
+            }
+            &.ai-width-7 {
+                max-width: var(--common-section-vscode-container-parent-grid-12-ai-width-7-max-width);
+            }
+            &.ai-width-11 {
+                max-width: var(--common-section-vscode-container-parent-grid-12-ai-width-11-max-width);
+            }
+        }
+
+        .parent-grid-12.ai-width-2,
+        .parent-grid-6.ai-width-1 {
+            max-width: var(--common-section-vscode-container-parent-grid-max-width-16);
+        }
+
+        .parent-grid-12.ai-width-3,
+        .parent-grid-4.ai-width-1 {
+            max-width: var(--common-section-vscode-container-parent-grid-max-width-25);
+        }
+
+        .parent-grid-12.ai-width-4,
+        .parent-grid-6.ai-width-2,
+        .parent-grid-3.ai-width-1 {
+            max-width: var(--common-section-vscode-container-parent-grid-max-width-33);
+        }
+
+        .parent-grid-12.ai-width-6,
+        .parent-grid-6.ai-width-3,
+        .parent-grid-4.ai-width-2,
+        .parent-grid-2.ai-width-1 {
+            max-width: var(--common-section-vscode-container-parent-grid-max-width-50);
+        }
+
+        .parent-grid-12.ai-width-8,
+        .parent-grid-6.ai-width-4,
+        .parent-grid-3.ai-width-2 {
+            max-width: var(--common-section-vscode-container-parent-grid-max-width-66);
+        }
+
+        .parent-grid-12.ai-width-9,
+        .parent-grid-4.ai-width-3 {
+            max-width: var(--common-section-vscode-container-parent-grid-max-width-75);
+        }
+
+        .parent-grid-12.ai-width-10,
+        .parent-grid-6.ai-width-5,
+        .parent-grid-3.ai-width-2 {
+            max-width: var(--common-section-vscode-container-parent-grid-max-width-83);
+        }
+
+        .parent-grid-12.ai-width-12,
+        .parent-grid-6.ai-width-6,
+        .parent-grid-4.ai-width-4,
+        .parent-grid-3.ai-width-3,
+        .parent-grid-2.ai-width-2,
+        .parent-grid-1.ai-width-1 {
+            max-width: var(--common-section-vscode-container-parent-grid-max-width-100);
+        }
+        // to be used after grid refactoring (fixed widths)
+        //.parent-grid-12,
+        //.parent-grid-6,
+        //.parent-grid-4,
+        //.parent-grid-3,
+        //.parent-grid-2,
+        //.parent-grid-1 {
+        //    &.ai-width-1,
+        //    &.ai-width-2,
+        //    &.ai-width-3,
+        //    &.ai-width-4,
+        //    &.ai-width-5,
+        //    &.ai-width-6,
+        //    &.ai-width-7,
+        //    &.ai-width-8,
+        //    &.ai-width-9,
+        //    &.ai-width-10,
+        //    &.ai-width-11,
+        //    &.ai-width-12 {
+        //        max-width: 500px;
+        //        min-width: 500px;
+        //    }
+        //}
+    }
+    .form-control {
+        border-radius: var(--common-section-vscode-container-border-radius);
+    }
+}
+
+.root-element-highlight {
+    &:hover {
+        background-color: var(--vscode-notebook-rowHoverBackground);
+    }
+
+    &:hover,
+    &:focus-within,
+    &.element-focused {
+        padding: var(--vscode-root-element-padding);
+        margin: var(--vscode-root-element-margin);
+    }
+    
+    &:focus-within, &.element-focused {
+        background-color: var(--vscode-settings-focusedRowBackground);
+        border-top: var(--vscode-root-element-focus-border-style-top-bottom);
+        border-bottom: var(--vscode-root-element-focus-border-style-top-bottom);
+        margin-top: var(--vscode-root-element-focus-margin-top-bottom);
+        margin-bottom: var(--vscode-root-element-focus-margin-top-bottom);
+        border-color: var(--vscode-notebook-focusedRowBorder);
+
+        &.focus-away{ 
+            border-color: var(--vscode-highlighted-element-focus-away-border-color);
+        }
+    }
+
+}
+
+.root-element {
+    padding-top: var(--vscode-root-element-padding-top);
+    padding-bottom: var(--vscode-root-element-padding-bottom);
+}

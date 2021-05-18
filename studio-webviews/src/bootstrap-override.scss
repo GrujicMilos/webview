@@ -1,0 +1,117 @@
+:root {
+  --dropdown-menu-padding: 0.1rem 0;
+  --dropdown-item-padding: 0.25rem 1rem;
+  --dropdown-item-font-size: 0.65rem;
+  --dropdown-item-font-weight: bold;
+  --dropdown-item-text-align: center;
+  --tree-component-ai-tabs-font-size: 0.7rem;
+  --tree-component-ai-tabs-font-style: normal;
+  --node-content-wrapper-font-size: 0.65rem;
+  --node-content-font-weight: 500;
+  --node-content-background: transparent;
+  --node-content-box-shadow: none;
+  --grid-td-content-width: calc(100% - 20px);
+  --grid-td-content-border: none;
+  --grid-td-input-radio-check-width-height: 17px;
+  --grid-td-input-radio-vertical-align: sub;
+}
+
+.dropdown-menu {
+  padding: var(--dropdown-menu-padding);
+
+  .dropdown-item {
+    padding: var(--dropdown-item-padding);
+    font-size: var(--dropdown-item-font-size);
+    font-weight: var(--dropdown-item-font-weight);
+    text-align: var(--dropdown-item-text-align);
+  }
+}
+
+.angular-tree-component,
+.container.ai-tabs-layout li a {
+  font-size: var(--tree-component-ai-tabs-font-size);
+  font-style: var(--tree-component-ai-tabs-font-style);
+}
+
+.ngx-tree-node-wrapper {
+  font-size: var(--node-content-wrapper-font-size);
+}
+
+.ngx-tree-node-wrapper-active,
+.ngx-tree-node-wrapper.ngx-tree-node-wrapper-active:hover,
+.ngx-tree-node-wrapper-active.ngx-tree-node-wrapper-focused,
+.ngx-tree-node-wrapper-focused,
+.ngx-tree-node-wrapper span,
+.ngx-tree-node-wrapper:hover {
+  box-shadow: var(--node-content-box-shadow);
+}
+
+.grid td input,
+.grid td select {
+  width: var(--grid-td-content-width);
+  border: var(--grid-td-content-border);
+}
+
+.grid td input[type="radio"],
+.grid input[type="checkbox"] {
+  width: var(--grid-td-input-radio-check-width-height);
+  height: var(--grid-td-input-radio-check-width-height);
+  vertical-align: var(--grid-td-input-radio-vertical-align);
+}
+
+/* ToDo(Marija):Any color property to be moved to separate file(color variables), same for font size, buttons, input, width, height? */
+
+ngx-tree {
+  padding: var(--filter-i-position-top);
+  font-size: var(--toolbox-item-font-size);
+  font-weight: var(--toolbox-item-font-weight);
+  .vscode-light & {
+    color: var(--editor-vscode-light-color);
+  }
+  .vscode-dark & {
+    color: var(--editor-vscode-dark-color);
+  }
+}
+
+ngx-tree .tree-node-content {
+  .vscode-light & {
+    color: var(--editor-vscode-light-color);
+  }
+  .vscode-dark & {
+    color: var(--editor-vscode-dark-color);
+  }
+}
+
+ngx-tree-node-content {
+  .vscode-light & {
+    color: var(--editor-vscode-light-color);
+  }
+  .vscode-dark & {
+    color: var(--editor-vscode-dark-color);
+  }
+}
+
+.tree-node-wrapper.ng-star-inserted.tree-node-wrapper-active.tree-node-wrapper-focused .tree-node-content {
+  background-color: var(--vscode-button-background);
+  .vscode-light & {
+    color: var(--editor-vscode-dark-color) !important;
+  }
+}
+
+.tree-node-active .tree-node-content,
+.tree-node-focused .tree-node-content {
+  .vscode-light & {
+    color: var(--editor-vscode-light-color) !important;
+  }
+  .vscode-dark & {
+    color: var(--editor-vscode-dark-color) !important;
+  }
+}
+
+ngx-tree-node-content.tree-node-content:hover {
+  background-color: var(--vscode-button-background) !important;
+  color: var(--toolbox-item-background-color) !important;
+  .vscode-light & {
+    color: var(--editor-vscode-dark-color) !important;
+  }
+}

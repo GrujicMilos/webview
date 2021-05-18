@@ -1,0 +1,776 @@
+/**
+ * outline styles
+ */
+
+html,
+body,
+#container,
+#canvas {
+  height: 100%;
+  margin: 0;
+}
+.palette-icon-lasso-tool {
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-dasharray%3D%225%2C%205%22%20width%3D%2246%22%20height%3D%2246%22%3E%3Crect%20x%3D%2210%22%20y%3D%2210%22%20width%3D%2226%22%20height%3D%2226%22%2F%3E%3C%2Fsvg%3E");
+}
+.palette-icon-create-shape {
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20width%3D%2246%22%20height%3D%2246%22%3E%3Crect%20x%3D%2210%22%20y%3D%2213%22%20width%3D%2226%22%20height%3D%2220%22%2F%3E%3C%2Fsvg%3E");
+}
+.context-pad-icon-remove {
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20width%3D%2246%22%20height%3D%2246%22%3E%3Cline%20x1%3D%225%22%20y1%3D%225%22%20x2%3D%2215%22%20y2%3D%2215%22%2F%3E%3Cline%20x1%3D%2215%22%20y1%3D%225%22%20x2%3D%225%22%20y2%3D%2215%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+.context-pad-icon-connect {
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20width%3D%2246%22%20height%3D%2246%22%3E%3Cline%20x1%3D%2215%22%20y1%3D%225%22%20x2%3D%225%22%20y2%3D%2215%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.djs-outline {
+  fill: none;
+  visibility: hidden;
+}
+
+.djs-element.hover .djs-outline,
+.djs-element.selected .djs-outline {
+  visibility: visible;
+  shape-rendering: crispEdges;
+  stroke-dasharray: 3, 3;
+}
+
+.djs-element.selected .djs-outline {
+  stroke: #8888ff;
+  stroke-width: 1px;
+}
+
+.djs-element.hover .djs-outline {
+  stroke: #ff8888;
+  stroke-width: 1px;
+}
+
+.djs-shape.connect-ok .djs-visual > :nth-child(1) {
+  fill: #dcfecc /* light-green */ !important;
+}
+
+.djs-shape.connect-not-ok .djs-visual > :nth-child(1),
+.djs-shape.drop-not-ok .djs-visual > :nth-child(1) {
+  fill: #f9dee5 /* light-red */ !important;
+}
+
+.djs-shape.new-parent .djs-visual > :nth-child(1) {
+  fill: #f7f9ff !important;
+}
+
+svg.drop-not-ok {
+  background: #f9dee5 /* light-red */ !important;
+}
+
+svg.new-parent {
+  background: #f7f9ff /* light-blue */ !important;
+}
+
+.djs-connection.connect-ok .djs-visual > :nth-child(1),
+.djs-connection.drop-ok .djs-visual > :nth-child(1) {
+  stroke: #90dd5f /* light-green */ !important;
+}
+
+.djs-connection.connect-not-ok .djs-visual > :nth-child(1),
+.djs-connection.drop-not-ok .djs-visual > :nth-child(1) {
+  stroke: #e56283 /* light-red */ !important;
+}
+
+.drop-not-ok,
+.connect-not-ok {
+  cursor: not-allowed;
+}
+
+.djs-element.attach-ok .djs-visual > :nth-child(1) {
+  stroke-width: 5px !important;
+  stroke: rgba(255, 116, 0, 0.7) !important;
+}
+
+/**
+  * Selection box style
+  *
+  */
+.djs-lasso-overlay {
+  fill: rgb(255, 116, 0);
+  fill-opacity: 0.1;
+
+  stroke-dasharray: 5 1 3 1;
+  stroke: rgb(255, 116, 0);
+
+  shape-rendering: crispEdges;
+  pointer-events: none;
+}
+
+/**
+   * Resize styles
+   */
+.djs-resize-overlay {
+  fill: none;
+
+  stroke-dasharray: 5 1 3 1;
+  stroke: rgb(255, 116, 0);
+
+  pointer-events: none;
+}
+
+.djs-resizer-hit {
+  fill: none;
+  pointer-events: all;
+}
+
+.djs-resizer-visual {
+  fill: white;
+  stroke-width: 1px;
+  stroke: black;
+  shape-rendering: crispEdges;
+  stroke-opacity: 0.2;
+}
+
+.djs-cursor-resize-nwse,
+.djs-resizer-nw,
+.djs-resizer-se {
+  cursor: nwse-resize;
+}
+
+.djs-cursor-resize-nesw,
+.djs-resizer-ne,
+.djs-resizer-sw {
+  cursor: nesw-resize;
+}
+
+.djs-shape.djs-resizing > .djs-outline {
+  visibility: hidden !important;
+}
+
+.djs-shape.djs-resizing > .djs-resizer {
+  visibility: hidden;
+}
+
+.djs-dragger > .djs-resizer {
+  visibility: hidden;
+}
+
+/**
+   * drag styles
+   */
+.djs-dragger .djs-visual circle,
+.djs-dragger .djs-visual path,
+.djs-dragger .djs-visual polygon,
+.djs-dragger .djs-visual polyline,
+.djs-dragger .djs-visual rect,
+.djs-dragger .djs-visual text {
+  fill: none !important;
+  stroke: rgb(255, 116, 0) !important;
+}
+
+.djs-dragging {
+  opacity: 0.3;
+}
+
+.djs-dragging,
+.djs-dragging > * {
+  pointer-events: none !important;
+}
+
+.djs-dragging .djs-context-pad,
+.djs-dragging .djs-outline {
+  display: none !important;
+}
+
+/**
+   * no pointer events for visual
+   */
+.djs-visual,
+.djs-outline {
+  pointer-events: none;
+}
+
+/**
+   * all pointer events for hit shape
+   */
+.djs-shape .djs-hit {
+  pointer-events: all;
+}
+
+.djs-connection .djs-hit {
+  pointer-events: stroke;
+}
+
+/**
+   * shape / connection basic styles
+   */
+.djs-connection .djs-visual {
+  stroke-width: 2px;
+  fill: none;
+}
+
+.djs-cursor-grab {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.djs-cursor-grabbing {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+.djs-cursor-crosshair {
+  cursor: crosshair;
+}
+
+.djs-cursor-move {
+  cursor: move;
+}
+
+.djs-cursor-resize-ns {
+  cursor: ns-resize;
+}
+
+.djs-cursor-resize-ew {
+  cursor: ew-resize;
+}
+
+/**
+   * snapping
+   */
+.djs-snap-line {
+  stroke: rgb(255, 195, 66);
+  stroke: rgba(255, 195, 66, 0.5);
+  stroke-linecap: round;
+  stroke-width: 2px;
+  pointer-events: none;
+}
+
+/**
+   * snapping
+   */
+.djs-crosshair {
+  stroke: #555;
+  stroke-linecap: round;
+  stroke-width: 1px;
+  pointer-events: none;
+  shape-rendering: crispEdges;
+  stroke-dasharray: 5, 5;
+}
+
+/**
+   * palette
+   */
+
+.djs-palette {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+
+  box-sizing: border-box;
+  width: 48px;
+}
+
+.djs-palette .separator {
+  margin: 0 5px;
+  padding-top: 5px;
+
+  border: none;
+  border-bottom: dotted 1px #494c58;
+
+  clear: both;
+}
+
+.djs-palette .entry:before {
+  vertical-align: middle;
+}
+
+.djs-palette .djs-palette-toggle {
+  cursor: pointer;
+}
+
+.djs-palette .entry,
+.djs-palette .djs-palette-toggle {
+  color: #333;
+  font-size: 30px;
+
+  text-align: center;
+}
+
+.djs-palette .entry {
+  float: left;
+}
+
+.djs-palette .entry img {
+  max-width: 100%;
+}
+
+.djs-palette .djs-palette-entries:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.djs-palette .djs-palette-toggle:hover {
+  background: #666;
+}
+
+.djs-palette .entry:hover {
+  color: #0c74b3;
+}
+
+.djs-palette .highlighted-entry {
+  color: #0c74b3 !important;
+}
+
+.djs-palette .entry,
+.djs-palette .djs-palette-toggle {
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  cursor: default;
+}
+
+/**
+   * Palette open / two-column layout is controlled via
+   * classes on the palette. Events to hook into palette
+   * changed life-cycle are available in addition.
+   */
+.djs-palette.two-column.open {
+  width: 94px;
+}
+
+.djs-palette:not(.open) .djs-palette-entries {
+  display: none;
+}
+
+.djs-palette-entries .entry {
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  &.flow-icon-hand-tool {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAAAmJLR0QA/4ePzL8AAAG+SURBVEjHxdRPSFRRFMfxT4NWRiMD6kJNS0kC3RUEoQQWSi2CCiqQaNumRYtoIgK3QZtoE4RR2xa1CiIsCLJImCL6M0RGNf1x2phZYDP9sTYv8T1H5zmbfg8e9553vvfce+55h4XV75WsLZasGozptsuDYBZTrZ4YN2wKNSbd89Go+vmOiRLwCUOavDSDopRbmt1wNB68VgYZBcwoeoRRbfHg5X6AAigG70YX3HFoafC/JXqNOyZtUyUw52Rc1R0P/h6Bf2NKbWWR4atk5fC38pF//qfI1SXgwiycjLrvd90VG4PZJOjQD3ZrwTJpCbR7GEb3eKrPgLcOzIFLq95Y2DDoNGjzzMky8AqfwoY6HzSAlGGXTYBOe3EKB63TEewqtHQCE4akwRc7TQfp6rQNR7DDehv0BcQvVeHYq72zJhjXygUbrEMTGlSpnm0Gr6WiZznufDBa6dKifeax1qhplZz2WE3qrq5okUw7YzAWnPCn1CVkbY0BZzWXMvd4UbbJJuVL1/aIm86WgXuNLFw/9x1eFL4YboFhNXqjZ8GvLd7P/6vmarOcfdEqCnLy3EC5fHa5Ju9z5Mm7bXvY8S99UolYeJ0BZgAAAABJRU5ErkJggg==");
+  }
+  &.flow-icon-lasso-tool {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAAAmJLR0QA/4ePzL8AAAGESURBVEgN3cFPS9MBAADQtz9OxdmCVi4ls2mEW7lIqGQHpZpgUofo0mUJFmZ1jCT7ABoW3fQyRnVIMSqiKEgMbXbs5BeKLkPFuR/e6j3/nwad8vr1Sggs5JIX1q147ZlZCz77qWxIyJ7Cxm2YMyAqJimlQ0ozsp6ruKKm01ZNadEhYlzSgJR2OYcVNep0SMm8iF2M+CEtI2HYbgri2kx6K2SHUV/EZXSJqyUli6fu2+aEihYhefXcFbXhgC0+yDrjovoiuj1QVJWxJKVLEDEXpJVVTRmVdFQwlyV8VLWszS1B9Wi3qOqTVq2C6TbgukeqytImBBPW4J1Tqm6bREh9KdectWyLhIqoO+oZdEzcL522eegJiiJqG9Eo4asRO4QtuieqlpuadOixZtguIhaU9HmjrOCvsHOSBp2X06zVtBW9air4LS9n3pIjwvpEHBSV91LFmLA9rcor4apN38wq+W7dnEEBDNk047H3po3pd1JMYFFrjtunGRP26YZX9q1Pk3/CH02wRlrKOpBWAAAAAElFTkSuQmCC");
+  }
+  &.flow-icon-space-tool {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAQAAABu4E3oAAAAAmJLR0QA/4ePzL8AAABZSURBVDjLY2CgH/hPurpRLWDAxiCFRaEUUByHFjaGDQxTsWiZChRnw6aFlWE9w1YGdixaEDIoWnBrQNaEoqWM4QuQxAe/ANVQagsZfiErxMiKF8JgVAu9AAAa90zIjDLZEQAAAABJRU5ErkJggg==");
+  }
+  &.flow-icon-connection-multi {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAAmJLR0QA/4ePzL8AAACrSURBVEjH3dQxDoMwDIXh/wwFtkZ0Qkg9Qxbm9ho+AVtU1BtyE87QAWi3BPl1whktfXKc2HDaGEjYdqIHSCxMCmC8mLn7r2AYnUIYBgqxAgIRv63rtF4cJgJBIwJXvYpRJ55cMtmemToPVLTZXjTcsnkg0NIU8lWeqJnps1U+9HcfdSKUelEiSv/m/zMQfXvpR+zj7SbcwE4IwEq8fUDcFvvEQlIAIzFw1vgAb7stKAAQggAAAAAASUVORK5CYII=");
+  }
+  &.flow-icon-start-event-none {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAAAmJLR0QA/4ePzL8AAAFZSURBVEgNrcFLTlNRAADQM+jrwyElfGYIGyFYmijoZqrugX587gBE0EnTmQIJnxYk7IFgcQW2SWtCmZm8EFIILb0J53h+L7xVsePEiR0VayaMZdFX/7TVJIqKEjVtPV8sGCmWuPHTioxBGXm7blTFhphz7sKSYZZdOjPrEXP+ODBplJxDV2Y8EDt3IPKUyJEzWfckLkwaR85vZQMW9L0yriU3Ft3Z8kOIPZtuTejJC1HQFUu981dGiEjbqlRFTai6ktR3FaE+2ZFqKgr1QUOq4b1QHx1LfVMVKrEtVVYTqq4ktaYjK0Sk47XUhJ4VIQq6Yre27Aqxb8Odl/ryxrXs2rwBVZdyxjGlZd09sTOHIk+JHDuV9cCsK0dyRpnS0DLtETN+uZQ3zIqWU9OGyCrr21MQGRQp2HdtXdZI8zZ1ddQlioo+q+vo2jBvLLFVJduamraVvBF7bv8B7f1iaolhhcwAAAAASUVORK5CYII=");
+  }
+  &.relation-icon-start-event-none {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAA7klEQVRIie3WO0oEQRCA4c/dMVJ27+ADNRCPIeoJRL2FKHiSNRAVxANpqBiq+MhWE1c0aB/NMBttzwRD/9BJVcFPVzfdRabtTFXECixgJpHjDTf4HFfQxRFe8ZV4veAQnSrxOe6xjd4kWyzRww4ecFpObmGIxYTCMstC2zfi4CUGNUp/OcYF/z2fw3UD4ivMx+ICowbEI0zH4sbJ4izO4vaIP4TXq26KH9ef+A6rDYjXcBsHNoUva6lG6QresV5OnAmf9S76CYV97OERJ1UFHRzgWfrR5wn7ostcNex1hWFvdoJdxgyFcx077GXayTdc40tXgdylnQAAAABJRU5ErkJggg==");
+  }
+}
+
+.djs-palette:not(.open) {
+  overflow: hidden;
+}
+
+.djs-palette.open .djs-palette-toggle {
+  display: none;
+}
+
+/**
+   * context-pad
+   */
+.djs-overlay-context-pad {
+  width: 72px;
+}
+
+.djs-context-pad {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+}
+
+.djs-context-pad .entry {
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  display: inline-block;
+  font-size: 22px;
+  margin: 0 2px 2px 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+
+  border-radius: 3px;
+
+  background-color: var(--color-background--lighten-80);
+  box-shadow: 0 0 2px 1px var(--color-background--lighten-80);
+  pointer-events: all;
+  &.flow-icon-trash {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAQAAAAngNWGAAAAAmJLR0QA/4ePzL8AAAC/SURBVDjLtdJBTgJBEIXhb8gkCmvT41k4g96AFVsuwSnYcQ5vYIKRezgjawgrWNAy03YHdeFbVar/rnpVqUqqhbkTKmsrN7QxAiOb9KECwas7beFj42iq6xPPlsUOS09ii4s6AbxgZhYjgs8LUEew1YAHTK4Rjz7Sil9g7rFLwYNxEbx3SMEf1YOlmmP7HGzj3KnDNge7wjhNv+phxeZ3Ff8A5h7Df3qsv4E74u52CMMD67W9lakH6Tfv2b1fdQbJ+S12+9FGUAAAAABJRU5ErkJggg==");
+  }
+  &.flow-icon-connection-multi {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAQAAABu4E3oAAAAAmJLR0QA/4ePzL8AAACKSURBVDjLxdQhDoRADIXhP0sQSO7AAUZhwJAQsAgOMmchwa0oezmugUEyoY9swsi2X/pMB956LYFAoPKTnYVIZPaTjS+dFszIVGSgogl0xD0qqXUEwxM0XlZzVop09j7R6fmkUMFKLsQGoMH+iWpKHeHZNOnI9E2mx/v5x2cikYXdT6rz/tu3PqAD/fgbUONjeL8AAAAASUVORK5CYII=");
+  }
+  &.flow-icon-start-event-none {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAQAAAAngNWGAAAAAmJLR0QA/4ePzL8AAADCSURBVDgRhcFfbsFwAADgL33UX8slhvsI8czsBIuMOU5lT/4cYcjM9tIrTRoS6aq+zz9BV1esRsvCyU4ms3Oy0FRhKDcSuwrGcgMlb1ZiZcHa1I2hlUiVyEbfRUsuuCfIpQoLI3WezRV+JeoER2eJT4/sxXRkHllq07b0yIcnEjuP7MXOfiTqBF8K78bqTMwUmnLBPYlc6mJgLVIlstVzY2ojKEtsvSrpy00krhIvcj0VUnPfDjKZg6OZVI2Gjo6Gkj/jcCukcju2nwAAAABJRU5ErkJggg==");
+  }
+  &.relation-icon-start-event-none {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAAmklEQVQ4je3UMQrCQBAF0OeSgF7B9LmRNuJVxFuIvQhaCV5DwUvoFRQMwSIJpLBxk0r91TCwj13YGX4ug1Y9xwTjD40b9ti0m0usIjD1mTUWTWOEE0IE1iTgjFFAjgvKDmBZG3lAgqID1uSJpMsz3+YP9gMWSHuw0trq9WMPA+44qkYvi8Ay1egd8GgvhxmmEegVO2wjLvMNeQGNfRh1QYQa4QAAAABJRU5ErkJggg==");
+  }
+}
+
+.djs-context-pad .entry:before {
+  vertical-align: top;
+}
+
+.djs-context-pad.open {
+  display: block;
+}
+
+/**
+   * popup styles
+   */
+.djs-popup .entry {
+  line-height: 20px;
+  white-space: nowrap;
+  cursor: default;
+}
+
+/* larger font for prefixed icons */
+.djs-popup .entry:before {
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.djs-popup .entry > span {
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.djs-popup .entry:hover,
+.djs-popup .entry.active:hover {
+  background: rgb(255, 252, 176);
+}
+
+.djs-popup .entry.disabled {
+  background: inherit;
+}
+
+.djs-popup .djs-popup-header .entry {
+  display: inline-block;
+  padding: 2px 3px 2px 3px;
+
+  border: solid 1px transparent;
+  border-radius: 3px;
+}
+
+.djs-popup .djs-popup-header .entry.active {
+  color: rgb(255, 116, 0);
+  border: solid 1px rgb(255, 116, 0);
+  background-color: #f6f6f6;
+}
+
+.djs-popup-body .entry {
+  padding: 4px 10px 4px 5px;
+}
+
+.djs-popup-body .entry > span {
+  margin-left: 5px;
+}
+
+.djs-popup-body {
+  background-color: #fefefe;
+}
+
+.djs-popup-header {
+  border-bottom: 1px solid #ddd;
+}
+
+.djs-popup-header .entry {
+  margin: 1px;
+  margin-left: 3px;
+}
+
+.djs-popup-header .entry:last-child {
+  margin-right: 3px;
+}
+
+/**
+   * popup / palette styles
+   */
+.djs-popup,
+.djs-palette {
+  background-color: var(--color-background);
+  border-radius: 2px;
+  -webkit-box-shadow: -1px -1px 6px -2px rgba(133, 175, 187, 1);
+  -moz-box-shadow: -1px -1px 6px -2px rgba(133, 175, 187, 1);
+  box-shadow: -3px -1px 6px -2px #6b6b6b;
+  .vscode-light & {
+    border: var(--editor-input-border);
+  }
+  .djs-palette-entries .group {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(182deg) brightness(104%) contrast(101%);
+    .vscode-light & {
+      filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(217deg) brightness(108%) contrast(108%);
+    }
+    .vscode-dark & {
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(182deg) brightness(104%) contrast(101%);
+    }
+  }
+}
+/* .djs-container svg{
+    width: 96%;
+    margin-left: 4%;
+    width: 80%;
+  }
+
+  .djs-overlays {
+    left: 640px;
+  } */
+
+/**
+   * touch
+   */
+
+.djs-shape,
+.djs-connection {
+  touch-action: none;
+}
+
+.djs-segment-dragger,
+.djs-bendpoint {
+  display: none;
+}
+
+/**
+   * bendpoints
+   */
+.djs-segment-dragger .djs-visual {
+  fill: rgba(255, 255, 121, 0.2);
+  stroke-width: 1px;
+  stroke-opacity: 1;
+  stroke: rgba(255, 255, 121, 0.3);
+}
+
+.djs-bendpoint .djs-visual {
+  fill: rgba(255, 255, 121, 0.8);
+  stroke-width: 1px;
+  stroke-opacity: 0.5;
+  stroke: black;
+}
+
+.djs-segment-dragger:hover,
+.djs-bendpoints.hover .djs-segment-dragger,
+.djs-bendpoints.selected .djs-segment-dragger,
+.djs-bendpoint:hover,
+.djs-bendpoints.hover .djs-bendpoint,
+.djs-bendpoints.selected .djs-bendpoint {
+  display: block;
+}
+
+.djs-drag-active .djs-bendpoints * {
+  display: none;
+}
+
+.djs-bendpoints:not(.hover) .floating {
+  display: none;
+}
+
+.djs-segment-dragger:hover .djs-visual,
+.djs-segment-dragger.djs-dragging .djs-visual,
+.djs-bendpoint:hover .djs-visual,
+.djs-bendpoint.floating .djs-visual {
+  fill: yellow;
+  stroke-opacity: 0.5;
+  stroke: black;
+}
+
+.djs-bendpoint.floating .djs-hit {
+  pointer-events: none;
+}
+
+.djs-segment-dragger .djs-hit,
+.djs-bendpoint .djs-hit {
+  pointer-events: all;
+  fill: none;
+}
+
+.djs-segment-dragger.horizontal .djs-hit {
+  cursor: ns-resize;
+}
+
+.djs-segment-dragger.vertical .djs-hit {
+  cursor: ew-resize;
+}
+
+.djs-segment-dragger.djs-dragging .djs-hit {
+  pointer-events: none;
+}
+
+.djs-updating,
+.djs-updating > * {
+  pointer-events: none !important;
+}
+
+.djs-updating .djs-context-pad,
+.djs-updating .djs-outline,
+.djs-updating .djs-bendpoint,
+.connect-ok .djs-bendpoint,
+.connect-not-ok .djs-bendpoint,
+.drop-ok .djs-bendpoint,
+.drop-not-ok .djs-bendpoint {
+  display: none !important;
+}
+
+.djs-segment-dragger.djs-dragging,
+.djs-bendpoint.djs-dragging {
+  display: block;
+  opacity: 1;
+}
+
+.djs-segment-dragger.djs-dragging .djs-visual,
+.djs-bendpoint.djs-dragging .djs-visual {
+  fill: yellow;
+  stroke-opacity: 0.5;
+}
+
+/**
+   * tooltips
+   */
+.djs-tooltip-error {
+  font-size: 11px;
+  line-height: 18px;
+  text-align: left;
+
+  padding: 5px;
+
+  opacity: 0.7;
+}
+
+.djs-tooltip-error > * {
+  width: 160px;
+
+  background: rgb(252, 236, 240);
+  color: rgb(158, 76, 76);
+  padding: 3px 7px;
+  border-radius: 5px;
+  border-left: solid 5px rgb(174, 73, 73);
+}
+
+.djs-tooltip-error:hover {
+  opacity: 1;
+}
+
+/**
+   * search pad
+   */
+.djs-search-container {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 25%;
+  min-width: 300px;
+  max-width: 400px;
+  z-index: 10;
+
+  font-size: 1.05em;
+  opacity: 0.9;
+  background: #fafafa;
+  border: solid 1px #ccc;
+  border-radius: 2px;
+}
+
+.djs-search-container:not(.open) {
+  display: none;
+}
+
+.djs-search-input input {
+  font-size: 1.05em;
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+}
+
+.djs-search-input input:focus {
+  outline: none;
+  border-color: #52b415;
+}
+
+.djs-search-results {
+  position: relative;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.djs-search-results:hover {
+  /*background: #fffdd7;*/
+  cursor: pointer;
+}
+
+.djs-search-result {
+  width: 100%;
+  padding: 6px 10px;
+  background: white;
+  border-bottom: solid 1px #aaa;
+  border-radius: 1px;
+}
+
+.properties-panel {
+  background: white;
+  height: 100vh;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 300px;
+  bottom: 0;
+  border-left: 1px solid #ccc;
+}
+
+.properties-panel.hide {
+  display: none;
+}
+
+.properties-panel .jsoneditor-sort,
+.jsoneditor-transform {
+  display: none;
+}
+
+.djs-search-highlight {
+  color: black;
+}
+
+.djs-search-result-primary {
+  margin: 0 0 10px;
+}
+
+.djs-search-result-secondary {
+  font-family: monospace;
+  margin: 0;
+}
+
+.djs-search-result:hover {
+  background: #fdffd6;
+}
+
+.djs-search-result-selected {
+  background: #fffcb0;
+}
+
+.djs-search-result-selected:hover {
+  background: #f7f388;
+}
+
+.djs-search-overlay {
+  background: yellow;
+  opacity: 0.3;
+}
+
+/**
+   * hidden styles
+   */
+.djs-element-hidden,
+.djs-element-hidden .djs-hit,
+.djs-element-hidden .djs-outline,
+.djs-label-hidden .djs-label {
+  display: none !important;
+}
