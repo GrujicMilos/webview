@@ -24,7 +24,7 @@
 			"activitybar": [
 				{
 					"id": "file-explorer",
-					"title": "Package Explorer",
+					"title": "File Explorer",
 					"icon": "media/dep.svg"
 				}
 			]
